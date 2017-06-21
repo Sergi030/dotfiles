@@ -1,0 +1,655 @@
+# Vim 8.0 generó este archivo "viminfo".
+# Puede editarlo, ¡sólo si tiene cuidado!
+
+# Viminfo version
+|1,4
+
+# Valor de 'encoding' cuando se escribió este archivo
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# Último Patrón de búsqueda:
+~MSle0~/contex
+
+# Historia de Línea de órdenes (de lo más nuevo a lo más antiguo):
+:wqa
+|2,0,1498003963,,"wqa"
+:wqaq
+|2,0,1498003212,,"wqaq"
+:w
+|2,0,1498003151,,"w"
+:set number
+|2,0,1498003135,,"set number"
+:set numbers
+|2,0,1498003131,,"set numbers"
+:Wqa
+|2,0,1498002592,,"Wqa"
+:qa!
+|2,0,1498002202,,"qa!"
+:q
+|2,0,1498000346,,"q"
+:e /etc/pacman.d/mirrorlist
+|2,0,1497716228,,"e /etc/pacman.d/mirrorlist"
+:q!
+|2,0,1497544828,,"q!"
+:qa
+|2,0,1497544432,,"qa"
+
+# Historia de Cadena de búsqueda (de lo más nuevo a lo más antiguo):
+?/contex
+|2,1,1498003173,47,"contex"
+?/red
+|2,1,1498002414,47,"red"
+?/colo
+|2,1,1498002099,47,"colo"
+?/symbol
+|2,1,1498001478,47,"symbol"
+?/con
+|2,1,1498001465,47,"con"
+?/user
+|2,1,1498001379,47,"user"
+?/prompt_con
+|2,1,1498001057,47,"prompt_con"
+?/blue
+|2,1,1498000734,47,"blue"
+?/oranhe
+|2,1,1498000671,47,"oranhe"
+?/color
+|2,1,1498000658,47,"color"
+? }
+|2,1,1498000594,,"}"
+?/LAN
+|2,1,1497915797,47,"LAN"
+?/es_ES
+|2,1,1497914944,47,"es_ES"
+?/-#
+|2,1,1497914887,47,"-#"
+?/#
+|2,1,1497914858,47,"#"
+? \<À\>
+|2,1,1497914610,,"\\<À\\>"
+?nn®
+|2,1,1497914606,127,"\n\n®"
+? \<en_ZA\>
+|2,1,1497914455,,"\\<en_ZA\\>"
+?/en_US
+|2,1,1497914439,47,"en_US"
+? \<dotshare\>
+|2,1,1497913548,,"\\<dotshare\\>"
+?/bin
+|2,1,1497912789,47,"bin"
+? \<ca\>
+|2,1,1497542660,,"\\<ca\\>"
+
+# Historia de Expresión (de lo más nuevo a lo más antiguo):
+
+# Historia de Línea de entrada (de lo más nuevo a lo más antiguo):
+
+# Historia de Debug Line (de lo más nuevo a lo más antiguo):
+
+# Registros:
+"0	CHAR	0
+	prompt_segment black default "$symbols"
+|3,0,0,0,1,0,1498002779,"prompt_segment black default \"$symbols\""
+"1	LINE	0
+	  [[ $RETVAL -ne 0 ]] && prompt_segment red default "$symbols" 
+|3,0,1,1,1,0,1498002573,"  [[ $RETVAL -ne 0 ]] && prompt_segment red default \"$symbols\" "
+"2	LINE	0
+	   prompt_segment black default " "
+|3,0,2,1,1,0,1498001470,"   prompt_segment black default \" \""
+"3	LINE	0
+	  prompt_segment yellow black '%~'
+|3,0,3,1,1,0,1498001108,"  prompt_segment yellow black '%~'"
+"4	LINE	0
+	# export ARCHFLAGS="-arch x86_64"
+|3,0,4,1,1,0,1497991019,"# export ARCHFLAGS=\"-arch x86_64\""
+"5	LINE	0
+	# Compilation flags
+|3,0,5,1,1,0,1497991015,"# Compilation flags"
+"6	LINE	0
+	
+|3,0,6,1,1,0,1497991014,""
+"7	LINE	0
+	# You may need to manually set your language environment
+|3,0,7,1,1,0,1497991013,"# You may need to manually set your language environment"
+"8	LINE	0
+	# Preferred editor for local and remote sessions
+|3,0,8,1,1,0,1497991013,"# Preferred editor for local and remote sessions"
+"9	LINE	0
+	# if [[ -n $SSH_CONNECTION ]]; then
+|3,0,9,1,1,0,1497991012,"# if [[ -n $SSH_CONNECTION ]]; then"
+"w	CHAR	0
+	iqweqwe qweqweý,ý.qweq.
+|3,0,32,0,1,0,1497544838,"iqweqwe qweqweý,ý.qweq."
+""-	CHAR	0
+	 
+|3,1,36,0,1,0,1498003312," "
+
+# Marcas en el archivo:
+'0  22  12  ~/.zshrc
+|4,48,22,12,1498003963,"~/.zshrc"
+'1  82  6  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,49,82,6,1498003314,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'2  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,50,83,22,1498003293,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'3  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,51,83,22,1498003293,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'4  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,52,83,21,1498003272,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'5  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,53,83,21,1498003272,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'6  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,54,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'7  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,55,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'8  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,56,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+'9  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,57,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+
+# Lista de saltos (el más reciente va primero):
+-'  22  12  ~/.zshrc
+|4,39,22,12,1498003963,"~/.zshrc"
+-'  1  34  ~/.zshrc
+|4,39,1,34,1498003938,"~/.zshrc"
+-'  82  6  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,82,6,1498003314,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  82  6  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,82,6,1498003314,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003302,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003302,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003293,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003293,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,21,1498003272,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,21,1498003272,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  21  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,21,1498003259,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003235,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  22  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,22,1498003235,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  23  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,23,1498003215,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  23  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,23,1498003215,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  18  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,18,1498003184,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  83  18  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,83,18,1498003184,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  227  9  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,227,9,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  220  0  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,220,0,1498003173,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  217  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,217,5,1498003071,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  215  5  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,215,5,1498003063,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002602,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002593,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  211  111  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,211,111,1498002593,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+-'  209  2  ~/.oh-my-zsh/themes/agnoster.zsh-theme
+|4,39,209,2,1498002571,"~/.oh-my-zsh/themes/agnoster.zsh-theme"
+
+# Historia de las marcas en los archivos (de la más reciente a la más antigua):
+
+> ~/.zshrc
+	*	1498003962	0
+	"	22	12
+	^	22	13
+	.	22	12
+	+	24	99
+	+	24	0
+	+	39	0
+	+	43	33
+	+	24	20
+	+	39	0
+	+	39	15
+	+	39	0
+	+	39	16
+	+	39	13
+	+	39	16
+	+	39	17
+	+	39	14
+	+	39	13
+	+	39	16
+	+	39	18
+	+	39	20
+	+	39	0
+	+	46	6
+	+	46	0
+	+	45	0
+	+	46	0
+	+	39	0
+	+	1	20
+	+	1	1
+	+	1	0
+	+	1	14
+	+	1	5
+	+	1	0
+	+	2	0
+	+	1	0
+	+	2	0
+	+	20	0
+	+	4	24
+	+	5	0
+	+	4	7
+	+	22	0
+	+	24	0
+	+	25	0
+	+	27	0
+	+	25	0
+	+	26	0
+	+	29	0
+	+	30	0
+	+	34	0
+	+	32	8
+	+	32	0
+	+	33	9
+	+	41	0
+	+	43	0
+	+	27	0
+	+	30	0
+	+	39	0
+	+	22	12
+
+> ~/.oh-my-zsh/themes/agnoster.zsh-theme
+	*	1498003313	0
+	"	82	6
+	^	83	23
+	.	82	6
+	+	83	60
+	+	81	0
+	+	82	0
+	+	83	0
+	+	82	0
+	+	83	0
+	+	84	0
+	+	85	0
+	+	83	3
+	+	190	22
+	+	208	0
+	+	209	0
+	+	190	2
+	+	208	2
+	+	190	0
+	+	190	50
+	+	190	42
+	+	227	2
+	+	190	0
+	+	190	54
+	+	190	57
+	+	208	2
+	+	190	76
+	+	210	62
+	+	211	0
+	+	81	0
+	+	85	3
+	+	86	0
+	+	85	33
+	+	227	2
+	+	85	0
+	+	211	69
+	+	211	67
+	+	211	106
+	+	190	56
+	+	208	2
+	+	209	46
+	+	211	87
+	+	208	2
+	+	83	0
+	+	84	0
+	+	82	0
+	+	84	0
+	+	83	23
+	+	190	3
+	+	208	3
+	+	211	25
+	+	209	2
+	+	209	0
+	+	209	1
+	+	209	20
+	+	208	25
+	+	209	0
+	+	210	0
+	+	211	0
+	+	209	0
+	+	210	0
+	+	211	65
+	+	211	108
+	+	211	50
+	+	211	40
+	+	211	198
+	+	211	29
+	+	213	39
+	+	214	31
+	+	211	25
+	+	216	41
+	+	217	33
+	+	218	40
+	+	219	0
+	+	217	26
+	+	214	26
+	+	211	24
+	+	217	26
+	+	218	1
+	+	215	2
+	+	212	1
+	+	218	0
+	+	83	18
+	+	83	22
+	+	82	6
+
+> .oh-my-zsh/themes/agnoster.zsh-theme
+	*	1498002199	0
+	"	1	0
+
+> /tmp/yaourt-tmp-root/aur-google-chrome/PKGBUILD
+	*	1497999666	0
+	"	5	1
+
+> ~/LSCOLORS
+	*	1497991419	0
+	"	1	0
+	.	1	0
+	+	1	1504
+	+	1	11
+	+	1	9
+	+	1	15
+	+	1	9
+	+	1	0
+
+> ~/meh.txt
+	*	1497918393	0
+	"	3	27
+	^	3	28
+	.	3	27
+	+	3	27
+
+> ~/.zsh
+	*	1497915647	0
+	"	1	19
+	^	1	20
+	.	1	19
+	+	1	19
+
+> ~/.config/locale.conf
+	*	1497915556	0
+	"	1	4
+	^	1	37
+	.	1	0
+	+	1	0
+
+> /etc/locale.conf
+	*	1497915408	0
+	"	15	0
+	^	15	0
+	.	14	7
+	+	1	16
+	+	14	7
+
+> /etc/locale.gen
+	*	1497914946	0
+	"	191	0
+	^	168	1
+	.	191	0
+	+	191	1
+	+	170	0
+	+	168	0
+	+	191	0
+
+> /etc/localtime
+	*	1497914934	0
+	"	1	0
+
+> /usr/lib/locale/locale-archive
+	*	1497914633	0
+	"	5	1230
+
+> ~/fontpatcher/setup.py
+	*	1497913896	0
+	"	24	0
+	.	1	0
+	+	1	0
+
+> ~/.fonts/PowerlineSymbols.otf
+	*	1497913840	0
+	"	1	0
+
+> ~/.config/i3/config
+	*	1497912793	0
+	"	32	0
+	.	32	0
+	+	13	0
+	+	32	0
+
+> ~/cosicas.txt
+	*	1497912675	0
+	"	2	0
+	^	2	0
+	.	2	0
+	+	1	1
+	+	3	0
+	+	2	0
+
+> /tmp/yaourt-tmp-root/aur-i3-gaps/PKGBUILD
+	*	1497716947	0
+	"	53	0
+
+> /etc/pacman.conf
+	*	1497716284	0
+	"	102	0
+	.	103	0
+	+	103	0
+
+> /etc/pacman.d/mirrorlist
+	*	1497716238	0
+	"	127	0
+
+> ~/programacio/Calibration/TILT/capture.py
+	*	1497546550	0
+	"	337	36
+
+> ~/programacio/Calibration/TILT/tilt.py
+	*	1497546469	0
+	"	78	31
+
+> /etc/hosts
+	*	1497546334	0
+	"	8	0
+	.	8	0
+	+	8	0
+
+> /etc/host
+	*	1497546256	0
+	"	1	0
+	^	1	0
+
+> ~/.z
+	*	1497544430	0
+	"	1	0
+
+> ~/.xinitrc
+	*	1497541912	0
+	"	1	9
+	^	1	10
+	.	1	9
+	+	1	9
+
+> /boot/grub/grub.cfg
+	*	1497472733	0
+	"	102	0
+	^	102	0
+	.	95	6
+	+	100	0
+	+	95	24
+	+	96	24
+	+	100	0
+	+	97	17
+	+	95	6
+
+> /etc/vconsole.conf
+	*	1497469141	0
+	"	1	10
+	.	2	8
+	+	2	8
