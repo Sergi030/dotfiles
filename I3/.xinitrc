@@ -35,5 +35,4 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 xset r rate 200 30
-betterlockscreen -u ~/.wallpaper/image.png&
 exec i3
