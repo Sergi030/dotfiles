@@ -2,7 +2,7 @@
 allow_bold = true
 clickable_url = true
 dynamic_title = false
-font = Monospace 12
+font = Meslo LG M for Powerline Regular 12
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
 # and setting it to a negative value means "infinite scrollback"
 scrollback_lines = -1
