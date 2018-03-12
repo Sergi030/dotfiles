@@ -23,8 +23,6 @@
 # Alias
   . ~/.config/zsh/alias.zsh
 
-
-
 plugins=(
   git
 )
