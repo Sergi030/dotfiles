@@ -3,7 +3,7 @@
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
+set nocompatible 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -19,7 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required  
+"filetype plugin indent on    " required  
 "}}}
 
 " Colors {{{
@@ -36,6 +36,7 @@ set expandtab                            " tabs are spaces
 " }}}
 
 " UI Config {{{
+set term=xterm-256color
 set number                               " show line numbers
 set wildmenu                             " visual autocomplete for command menu
 set lazyredraw                           " redraw only when we need to.
@@ -73,3 +74,5 @@ vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
 set pastetoggle=<F2>
 map <F2> :NERDTreeToggle<cr>
 " }}}
+
+
