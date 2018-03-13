@@ -3,4 +3,5 @@ VIM/.vim/bundle/ctrlp.vim/
 VIM/.vim/bundle/nerdtree/
 VIM/.vim/bundle/powerline/
 VIM/.vim/bundle/vim-colors-solarized/
-VIM/.vim/bundle/vim-gitgutter/
+VIM/.vim/bundle/*
+VIM/.vim/backup/*
