@@ -1,21 +1,16 @@
+# vim: foldmethod=marker:foldlevel=0
+
 # modKey "ALT"
 set $mod Mod1
 
-# Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below.
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1 
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-
+#{{{Program/Scripts
+# start program launcher
+bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
 # start a terminal
 bindsym $mod+Return exec termite
+#}}}
 
-# kill focused window
-bindsym $mod+Shift+q kill
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
+#{{{Focus windows Keybindings
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -28,11 +23,16 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+# kill focused window
+bindsym $mod+Shift+q kill
+#}}}
+
+#{{{Move Windows Keybindings
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+ntilde move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -40,12 +40,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
+# }}}
 
-# split in vertical orientation
-bindsym $mod+v split v
-
+#{{{ windows mode - container/tiling/floating/fullscreen
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -59,13 +56,9 @@ bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
+#}}}
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
+#{{{Workspace Changer
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -90,13 +83,18 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+#}}}
+
+#{{{ Reload/Restart/exit I3
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#}}}
 
+#{{{ Resize 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
@@ -116,17 +114,63 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+#}}}
 
-
+#{{{Background and LockScreen
 # Background
 exec feh --bg-scale ~/.wallpaper/image.png
 
 #BetterLockScreen 
 bindsym $mod+o exec betterlockscreen -l
 
+#}}}
+
+#{{{ colors
+
+set_from_resource $darkred     color1  #000000
+set_from_resource $red         color9  #000000
+set_from_resource $darkgreen   color2  #000000
+set_from_resource $green       color10 #000000
+set_from_resource $darkyellow  color3  #000000
+set_from_resource $yellow      color11 #000000
+set_from_resource $darkblue    color4  #000000
+set_from_resource $blue        color12 #000000
+set_from_resource $darkmagenta color5  #000000
+set_from_resource $magenta     color13 #000000
+set_from_resource $darkcyan    color6  #000000
+set_from_resource $cyan        color14 #000000
+set_from_resource $darkwhite   color7  #000000
+set_from_resource $white       color15 #000000
+# Use custom colors for black
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000085
+
+#}}}
+
+#{{{ UI - Bar/font/windows
+
+# Font for window titles. Will also be used by the bar unless a different font is used in the bar {} block below.
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1 
+
+# windows colors        BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background $black
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#bar {
+#    status_command i3blocks
+#}
+set $height 34
 bar {
-        status_command i3status
+#    verbose yes
+    status_command i3blocks
 }
+
+#}}}
+
