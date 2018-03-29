@@ -266,7 +266,7 @@ set -g mouse on
 # move status line to top
 #set -g status-position top
 
-
+bind o send-keys -t.- 'dmesg -we' Enter
 # home/end - Inicio/Fin keys enable
 #bind -n End send-key C-e
 #bind -n Home send-key C-a
