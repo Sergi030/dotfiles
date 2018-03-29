@@ -69,7 +69,20 @@ workspace 6 output HDMI-1
 workspace 7 output HDMI-1
 workspace 8 output HDMI-1
 workspace 9 output HDMI-1
-workspace 100 output HDMI-1
+workspace 10 output HDMI-1
+
+workspace 11 output HDMI-1
+workspace 12 output HDMI-1
+workspace 13 output HDMI-1
+workspace 14 output HDMI-1
+workspace 15 output HDMI-1
+workspace 16 output HDMI-1
+workspace 17 output HDMI-1
+workspace 18 output HDMI-1
+workspace 19 output HDMI-1
+workspace 20 output HDMI-1
+workspace 21 output HDMI-1
+workspace 22 output HDMI-1
 
 
 # switch to workspace
