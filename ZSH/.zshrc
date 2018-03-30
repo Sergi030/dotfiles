@@ -20,6 +20,7 @@
   export SSH_KEY_PATH="~/.ssh/rsa_id"
   export PATH=~/.npm-global/bin:$PATH
   export PATH=~/.gem/ruby/2.5.0/bin:$PATH
+  export PATH=~/.bin:$PATH
 # Alias
   . ~/.config/zsh/alias.zsh
 

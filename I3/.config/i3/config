@@ -5,9 +5,19 @@ set $mod Mod1
 focus_follows_mouse no
 #{{{Program/Scripts
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
+bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
 # start a terminal
 bindsym $mod+Return exec termite || gnome-terminal
+
+
+bindsym XF86AudioRaiseVolume exec volume.sh up
+bindsym XF86AudioLowerVolume exec volume.sh down
+bindsym XF86AudioMute exec volume.sh mute
+
+bindsym XF86MonBrightnessUp exec brightness.sh up
+bindsym XF86MonBrightnessDown exec brightness.sh down
+
+
 #}}}
 
 #{{{Focus windows Keybindings
