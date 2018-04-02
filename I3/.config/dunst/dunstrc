@@ -42,7 +42,7 @@
     separator_color = frame
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/google-chrome-beta
+    browser = /usr/bin/google-chrom-stable
     icon_position = off
     icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     frame_width = 2
@@ -65,10 +65,3 @@
 [urgency_critical]
     background = "#282828"
     foreground = "#ebdbb2"
-    timeout = 3
-
-[spotify]
-    appname = Spotify
-    format = "<b>%s\n%b</b>"
-    urgency = low
-    foreground = "#14643b"

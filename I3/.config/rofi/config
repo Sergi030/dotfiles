@@ -1,19 +1,6 @@
 !-------------------------------------------
 ! rofi
-!! add script named TODO
-rofi.modi:                          run,TODO:~/.config/rofi/scripts/todo.sh
+rofi.modi:                          run
 rofi.lines:                         6
-rofi.color-enabled:                 true
-rofi.separator-style:               none 
 rofi.width:                         40
-! rofi state:                          'bg'     'fg'     'bgalt'     'hlbg'    'hlfg'
-! Color scheme for normal row
-rofi.color-normal:                  argb:00000000, #8b4779, argb:00000000, #16101b,#ffffff
-! Color scheme for urgent row
-rofi.color-urgent:                  argb:00000000, #8b4779, argb:00000000, #16101b,#ffffff
-! Color scheme for active row
-rofi.color-active:                  argb:00000000, #8b4779, argb:00000000, #16101b,#ffffff
-! Color scheme window
-rofi.color-window:                  argb:ee0f0a13, #000,#fbdeff
-rofi.theme: ~/.config/rofi/themes/paper-float.rasi
-#include "/usr/share/rofi/themes//android_notification.theme"
+rofi.theme: ~/.config/rofi/themes/darkred.rasi

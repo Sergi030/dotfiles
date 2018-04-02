@@ -15,7 +15,6 @@ function is_mute {
 
 function send_notification {
     volume=`get_volume`
-    echo $volume
     # Make the bar with the special character ─ (it's not dash -)
     # https://en.wikipedia.org/wiki/Box-drawing_character
     bar=$(seq -s "─" $(($volume / 5)) | sed 's/[0-9]//g')
@@ -23,6 +22,7 @@ function send_notification {
     dunstify -a "VOLUME" -r 2593 -u normal "$bar"
 }
 
+volume=`get_volume`
 case $1 in
     up)
 	# Set the volume on (if it was muted)
@@ -46,3 +46,5 @@ case $1 in
 	fi
 	;;
 esac
+
+echo "$volume "

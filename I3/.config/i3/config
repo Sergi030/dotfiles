@@ -1,7 +1,7 @@
 # vim: foldmethod=marker:foldlevel=0
 
 # modKey "ALT"
-set $mod Mod1
+set $mod Mod4
 focus_follows_mouse no
 #{{{Program/Scripts
 # start program launcher
@@ -204,7 +204,7 @@ set_from_resource $white       color15 #000000
 # Use custom colors for black
 set $black       #282828
 set $darkblack   #1d2021
-set $transparent #00000085
+set $transparent #00000000
 
 #}}}
 
@@ -230,6 +230,28 @@ set $height 34
 bar {
 #    verbose yes
     status_command i3blocks
+    i3bar_command i3bar -t
+    position top
+    font pango:Hack, FontAwesome 11
+    strip_workspace_numbers yes
+    separator_symbol "■"
+    bindsym button4 nop
+    bindsym button5 nop
+    tray_output eDP1
+    tray_output LVDS-0
+    tray_padding 0
+    height $height
+    colors {
+        separator          $transparent
+
+#                          BORDER       BACKGROUND   TEXT
+        focused_workspace  $red $transparent $darkwhite
+        inactive_workspace $transparent $transparent $white
+        active_workspace   $transparent $transparent $white
+        urgent_workspace   $darkred     $darkred     $transparent
+        binding_mode       $darkred     $darkred     $transparent
+    }
+
 }
 
 #}}}
@@ -257,3 +279,4 @@ for_window [class="LoRaGeneralCfg.py"] floating enable
 for_window [class="SisgeoChCfg.py"] floating enable
 for_window [class="LoRaSlotTimeCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
+for_window [instance="__nmtui"] floating enable

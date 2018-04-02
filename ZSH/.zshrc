@@ -18,6 +18,8 @@
 
 # SSH KEYS
   export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# PATH 
   export PATH=~/.npm-global/bin:$PATH
   export PATH=~/.gem/ruby/2.5.0/bin:$PATH
   export PATH=~/.bin:$PATH

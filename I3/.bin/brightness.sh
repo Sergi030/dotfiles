@@ -2,7 +2,6 @@
 
 # You can call this script like this:
 # $./volume.sh up
-        brightness=`get_brightness`
 # $./volume.sh down
 # $./volume.sh mute
 
@@ -34,4 +33,4 @@ case $1 in
 	    send_notification
 	;;
 esac
-echo $brightness
+echo "$brightness "

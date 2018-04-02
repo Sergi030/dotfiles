@@ -1,0 +1,61 @@
+/**
+ * A floating box version of the paper theme.
+ *
+ * User: Qball
+ * Copyright: Dave Davenport
+ */
+* {
+    spacing: 2;
+    anchor: north;
+    location: center;
+    background-color: #00000000;
+    border-color: #cc241d;
+    text-color: #ECDCB3; 
+}
+
+#window {
+    transparency: "screenshot";
+    border: 0;
+    padding: 0% 0% 1em 0%;
+    x-offset: 0;
+    y-offset: -10%;
+}
+
+
+#mainbox {
+    padding: 0px;
+    border: 0;
+    spacing: 1%;
+}
+
+
+#listview {
+    fixed-height: 1;
+    border: 2px;
+    padding: 1em;
+    reverse: false;
+    columns: 1;
+    background-color: #282828; 
+}
+
+
+#element {
+    border: 0;
+    padding: 2px;
+    highlight: bold ;
+}
+
+#element selected.normal {
+    text-color: #ECDCB3; 
+    background-color: #cc241d;
+}
+
+
+#inputbar {
+    spacing: 0;
+    border: 2px;
+    padding: 0.5em 1em;
+    background-color: #282828;
+    index: 0;
+}
+
