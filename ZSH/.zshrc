@@ -24,12 +24,15 @@
   export PATH=~/.gem/ruby/2.5.0/bin:$PATH
   export PATH=~/.bin:$PATH
   export PATH=~/bin:$PATH
+  export PATH=~/.ls_bin:$PATH
+  export PATH=~/.composer/vendor/bin:$PATH
 # Alias
   . ~/.config/zsh/alias.zsh
 
 plugins=(
   git
 )
-
+bindkey "e[1~" beginning-of-line
+bindkey "e[4~" end-of-line
 source $ZSH/oh-my-zsh.sh
 

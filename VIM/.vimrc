@@ -68,6 +68,8 @@ set dir=~/.vim/swap//           " tell vim where to put swap files
 
 " Keybinding functions {{{
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
+noremap    <Home>    g^ 
+noremap    <End>    g$ 
 " }}}
 
 " Plugins  config {{{
