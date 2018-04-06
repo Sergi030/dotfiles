@@ -68,13 +68,27 @@ set dir=~/.vim/swap//           " tell vim where to put swap files
 
 " Keybinding functions {{{
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
-noremap    <Home>    g^ 
-noremap    <End>    g$ 
+
+
+
+"Normal mode key map
+"go to beginning of line
+map  g^
+"go to end of line
+map  g$
+
+" Insert mode key map
+"go to beginning of line
+imap     <HOME>
+"go to end of line
+imap     <END>
 " }}}
 
 " Plugins  config {{{
 set pastetoggle=<F2>
 map <F2> :NERDTreeToggle<cr>
 " }}}
+
+
 
 
