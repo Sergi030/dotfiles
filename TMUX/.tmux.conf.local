@@ -268,5 +268,5 @@ set -g mouse on
 
 bind o send-keys -t.- 'dmesg -we' Enter
 # home/end - Inicio/Fin keys enable
-#bind -n End send-key C-e
-#bind -n Home send-key C-a
+bind -n End send-key C-e
+bind -n Home send-key C-a

@@ -10,7 +10,6 @@ def find_ttyConnected():
     for tty in list:
         ttyconnected[str(i)] =  {"dev":  str(tty.device), "type": str(tty).split(" ")[2]}
         i += 1
-    print ttyconnected
     return ttyconnected
 
 
@@ -21,13 +20,10 @@ def is_gw(tty_devices):
             gwtty=i    
     return gwtty
 
-def open_gtkterm():
-    print('gtkterm')    
 
 
 tty_devices = find_ttyConnected()
 gw_device = is_gw(tty_devices)
-print(gw_device)
 os.system("dunstify -a ' GTKTERM: ' -r 5000 -u normal " + str(tty_devices[gw_device]['dev']))
 
 os.system("gtkterm --port " + str(tty_devices[gw_device]['dev']) + " --speed 115200 &")
