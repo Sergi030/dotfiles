@@ -1,9 +1,10 @@
 " vim: foldmethod=marker:foldlevel=0
+
 "  Vundle {{{
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-set nocompatible 
+set nocompatible
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -13,29 +14,30 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-"filetype plugin indent on    " required  
+"filetype plugin indent on    " required
 "}}}
 
 " Colors {{{
 set background=dark
 colorscheme solarized         " awesome colorscheme
-syntax enable     
-" }}} 
+syntax enable
+" }}}
 
-" Spaces & Tabs {{{
+" Spac es & Tabs {{{
 set tabstop=4                            " number of visual spaces per TAB
 set softtabstop=4                        " number of spaces in tab when editing
 set shiftwidth=4                         " key < has 4 spaces
 set expandtab                            " tabs are spaces
 " }}}
 
-" UI Config {{{
+" UI  Config {{{
 set term=xterm-256color
 set number                               " show line numbers
 set wildmenu                             " visual autocomplete for command menu
@@ -64,13 +66,19 @@ set foldlevel=99        " fold are always open
 set backup                      " tell vim to keep a backup file
 set backupdir=~/.vim/backup//   " tell vim where to put its backup files
 set dir=~/.vim/swap//           " tell vim where to put swap files
-" }}}
+"  }}}
 
 " Keybinding functions {{{
+" Replace function
 vnoremap <C-r> "hy:%s/<C-r>h/<C-r>h/g<left><left>
 
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-
+"fix zsh, tmux vim -- home end keys
 "Normal mode key map
 "go to beginning of line
 map  g^
@@ -79,16 +87,38 @@ map  g$
 
 " Insert mode key map
 "go to beginning of line
-imap     <HOME>
+imap  <HOME>
 "go to end of line
-imap     <END>
-" }}}
+imap  <END>
+
+
+"CtrlP buffer
+map <leader>p :CtrlPBuffer<cr>
+
+"Buffers
+map <tab> :
+ "go next buffer
+map <S-tab> :bN<cr> " go last buffer
+map <tab> :bn<cr>unmap <tab>
+ "go next buffer
+
+"  }}}
 
 " Plugins  config {{{
 set pastetoggle=<F2>
 map <F2> :NERDTreeToggle<cr>
-" }}}
+ " }}}
 
 
+set hidden
+"Enable airline tabline
+let g:airline#extensions#tabline#enabled = 1
+" use patchet fonts that can use >
+let g:airline_powerline_fonts = 1
 
-
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline_theme='base16'
+let g:airline#extensions#syntastic#enabled = 1
+let g:syntastic_stl_format = "[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]"
