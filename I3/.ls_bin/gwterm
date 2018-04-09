@@ -14,7 +14,7 @@ def find_ttyConnected():
 
 
 def is_gw(tty_devices):
-    gwtty="disconected"
+    gwtty="disconnected"
     for i in sorted(tty_devices.keys()):
         if tty_devices[i]['type'] == 'USB':
             gwtty=i    
@@ -24,7 +24,10 @@ def is_gw(tty_devices):
 
 tty_devices = find_ttyConnected()
 gw_device = is_gw(tty_devices)
-os.system("dunstify -a ' GTKTERM: ' -r 5000 -u normal " + str(tty_devices[gw_device]['dev']))
 
-os.system("gtkterm --port " + str(tty_devices[gw_device]['dev']) + " --speed 115200 &")
+if (gw_device != "disconnected"):
+    os.system("gtkterm --port " + str(tty_devices[gw_device]['dev']) + " --speed 115200 &")
+    os.system("dunstify -a ' GTKTERM: ' -r 5000 -u normal " + str(tty_devices[gw_device]['dev']))
+else:
+    os.system("notify-send -a 'GTKTERM' 'Serial Not Found'")
 
