@@ -178,8 +178,6 @@ bindsym $mod+r mode "resize"
 
 #{{{Background and LockScreen
 # Background
-exec feh --bg-scale ~/.wallpaper/image.png
-
 #BetterLockScreen 
 bindsym $mod+o exec betterlockscreen -l
 
@@ -284,3 +282,9 @@ for_window [class="LoRaSlotTimeCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [instance="__nmtui"] floating enable
+
+
+
+exec ~/.screenlayout/default.sh
+exec feh --bg-scale ~/.wallpaper/image.png
+
