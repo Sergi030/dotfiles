@@ -27,7 +27,6 @@ prompt_time() {
   prompt_segment white black %D{%T}
 }
 
-
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
@@ -37,7 +36,6 @@ prompt_end() {
   echo -n "%{%f%}"
   CURRENT_BG=''
 }
-
 
 prompt_git() {
   (( $+commands[git] )) || return
@@ -81,39 +79,32 @@ prompt_git() {
   fi
 }
 
-
-prompt_status() {
-  local symbols
-  BULLETTRAIN_STATUS_EXIT_SHOW=true
-  symbols=()
-  errors=()
-  [[ $RETVAL -ne 0 ]] && errors+="✘ $RETVAL"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡%f"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="⚙"
-
-  prompt_segment black default "$symbols"
-  [[ $RETVAL -ne 0 ]] && prompt_segment red white "$errors"
+prompt_context() {
+  if [[ -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+  fi
 
 }
 
+prompt_status() {
+  local symbols
+  #BULLETTRAIN_STATUS_EXIT_SHOW=true
+  symbols=()
+  errors=()
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘%f"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡%f"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="⚙"
 
-
-
-
-
-
-
-
+  prompt_segment black default "$symbols "
+}
 
 build_prompt() {
   RETVAL=$?
-  #prompt_time
+  prompt_context
   prompt_status
   prompt_dir
   prompt_git
   prompt_end
-
-
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
