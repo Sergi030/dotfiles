@@ -88,14 +88,15 @@ prompt_context() {
 
 prompt_status() {
   local symbols
-  #BULLETTRAIN_STATUS_EXIT_SHOW=true
+  BULLETTRAIN_STATUS_EXIT_SHOW=true
   symbols=()
   errors=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘%f"
+  [[ $RETVAL -ne 0 ]] && errors+="✘ $RETVAL"
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡%f"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="⚙"
 
-  prompt_segment black default "$symbols "
+  prompt_segment black default "$symbols"
+  [[ $RETVAL -ne 0 ]] && prompt_segment red white "$errors"
 }
 
 build_prompt() {
