@@ -64,8 +64,8 @@ set foldlevel=99        " fold are always open
 
 " Backup & Swap files {{{
 set backup                      " tell vim to keep a backup file
-set backupdir=~/.vim/backup//   " tell vim where to put its backup files
-set dir=~/.vim/swap//           " tell vim where to put swap files
+set backupdir=~/.cache/vim/backup//   " tell vim where to put its backup files
+set dir=~/.cache/vim/swap//           " tell vim where to put swap files
 "  }}}
 
 " Keybinding functions {{{
@@ -104,21 +104,21 @@ map <tab> :bn<cr>unmap <tab>
 
 "  }}}
 
-" Plugins  config {{{
+" Plugins config {{{
 set pastetoggle=<F2>
 map <F2> :NERDTreeToggle<cr>
  " }}}
 
-
-set hidden
+" AirLine {{{
+set hidden "Allow to change buffer without save
 "Enable airline tabline
 let g:airline#extensions#tabline#enabled = 1
 " use patchet fonts that can use >
 let g:airline_powerline_fonts = 1
-
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline_theme='base16'
 let g:airline#extensions#syntastic#enabled = 1
 
+ " }}}
