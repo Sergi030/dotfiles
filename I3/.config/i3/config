@@ -1,6 +1,6 @@
 # vim: foldmethod=marker:foldlevel=0
 
-# modKey "ALT"
+# modKey "WIN"
 set $mod Mod4
 focus_follows_mouse no
 #{{{Program/Scripts
@@ -17,6 +17,10 @@ bindsym XF86AudioMute exec volume.sh mute
 bindsym XF86MonBrightnessUp exec brightness.sh up
 bindsym XF86MonBrightnessDown exec brightness.sh down
 
+bindsym Print exec "flameshot gui"
+bindsym $mod+Print exec "flameshot gui"
+bindsym Ctrl+Shift+Print exec "flameshot gui"
+bindsym Shift+Print exec "flameshot gui"
 
 #}}}
 
@@ -285,6 +289,5 @@ for_window [instance="__nmtui"] floating enable
 
 
 
-exec ~/.screenlayout/default.sh
 exec feh --bg-scale ~/.wallpaper/image.png
 
