@@ -12,13 +12,14 @@ set nocompatible
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 "filetype plugin indent on    " required
@@ -91,16 +92,14 @@ imap  <HOME>
 "go to end of line
 imap  <END>
 
-
 "CtrlP buffer
-map <leader>p :CtrlPBuffer<cr>
+nmap <leader>p :CtrlPBuffer<cr>
 
 "Buffers
-map <tab> :
- "go next buffer
-map <S-tab> :bN<cr> " go last buffer
-map <tab> :bn<cr>unmap <tab>
- "go next buffer
+nmap <tab> :bnext<cr>
+
+vmap <Tab> >
+vmap <S-Tab> <
 
 "  }}}
 
@@ -112,7 +111,7 @@ map <F2> :NERDTreeToggle<cr>
 " AirLine {{{
 set hidden "Allow to change buffer without save
 "Enable airline tabline
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 " use patchet fonts that can use >
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
