@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if ! [ -e /tmp/caps ]; then
+    setxkbmap -option ctrl:nocaps
+    touch /tmp/caps
+else
+    setxkbmap -option
+    rm /tmp/caps
+fi
+

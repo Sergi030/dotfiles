@@ -10,6 +10,13 @@ command=$HOME/scripts/monitor.sh
 interval=60
 signal=4
 
+
+[Train]
+label= ℹ 
+command=python $HOME/scripts/next-train.py
+interval=120
+border=#C71585
+
 [volume]
 label=   
 command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "__nmtui" || true) && $HOME/scripts/volume_control.py signal) || $HOME/scripts/volume_control.py toggle ); $HOME/scripts/volume_control.py i3blocks
@@ -24,6 +31,7 @@ command=brightness.sh
 interval=10
 signal=2
 border=#d79921
+
 
 [wireless]
 label=  
@@ -43,3 +51,5 @@ interval=1
 markup=pango
 border=#928374
 separator_block_width=0
+
+
