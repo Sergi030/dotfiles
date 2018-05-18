@@ -16,6 +16,7 @@ function send_notification {
     bar=$(seq -s "─" $(($brightness / 5)) | sed 's/[0-9]//g')
     # Send the notification
     dunstify -a "Bright" -r 2593 -u normal "$bar"
+    echo "$brightness "
 }
 
 
@@ -33,4 +34,3 @@ case $1 in
 	    send_notification
 	;;
 esac
-echo "$brightness "
