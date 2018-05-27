@@ -27,7 +27,7 @@ border=#cc241d
 
 [brightness]
 label=  
-command=brightness.sh
+command=backlight.sh
 interval=10
 signal=2
 border=#d79921

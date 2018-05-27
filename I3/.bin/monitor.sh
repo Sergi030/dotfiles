@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-if [ $(xrandr | grep -w connected | wc -l) -gt 1 ]; then
-
-    xrandr -q | grep -wv eDP1 | grep connected | \
-    while read line; do
+xrandr -q | grep -wv eDP1 | grep connected | \
+while read line; do
     output=$(echo "$line" | awk -F' ' '{print $1}')
 
     connected=$(echo "$line" | grep -w "connected")
@@ -20,7 +18,7 @@ if [ $(xrandr | grep -w connected | wc -l) -gt 1 ]; then
         else
             [[ -z "${BLOCK_BUTTON}" ]] || {
                 xrandr --auto
-                xrandr --output "${output}" --right-of eDP1
+                xrandr --output "${output}" --left-of eDP1
                 pkill -RTMIN+4 i3blocks
             }
 
@@ -40,6 +38,4 @@ if [ $(xrandr | grep -w connected | wc -l) -gt 1 ]; then
             exit 33
         fi
     fi
-    done
-
-fi
+done
