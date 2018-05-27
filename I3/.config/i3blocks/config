@@ -6,20 +6,20 @@ border_right=0
 border_bottom=4
 
 [output]
-command=$HOME/scripts/monitor.sh
+command=monitor.sh
 interval=60
 signal=4
 
 
 [Train]
 label= ℹ 
-command=python $HOME/scripts/next-train.py
+command=next-train.py
 interval=120
 border=#C71585
 
 [volume]
 label=   
-command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "__nmtui" || true) && $HOME/scripts/volume_control.py signal) || $HOME/scripts/volume_control.py toggle ); $HOME/scripts/volume_control.py i3blocks
+command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "__nmtui" || true) && volume_control.py signal) || volume_control.py toggle );volume_control.py i3blocks
 interval=5
 signal=1
 markup=pango
@@ -40,7 +40,7 @@ interval=2
 border=#98971a
 
 [battery]
-command=$HOME/scripts/battery.sh
+command=battery.sh
 interval=persist
 border=#458588
 
