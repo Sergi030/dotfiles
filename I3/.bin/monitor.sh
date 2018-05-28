@@ -2,7 +2,7 @@
 
 if [ $(xrandr -q | grep -w connected | wc -l) -gt 1 ]
 then 
-    randr -q | grep -wv eDP1 | grep connected | \
+    xrandr -q | grep -wv eDP1 | grep connected | \
     while read line; do
         output=$(echo "$line" | awk -F' ' '{print $1}')
 
