@@ -28,6 +28,7 @@
   export PATH=~/.composer/vendor/bin:$PATH
 # Alias
   . ~/.config/zsh/alias.zsh
+  . ~/.config/zsh/hashes.zsh
 
 plugins=(
   git
