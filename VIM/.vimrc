@@ -19,7 +19,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-
+Plugin 'suan/vim-instant-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
 
@@ -129,5 +129,5 @@ let g:airline#extensions#syntastic#enabled = 1
 set tags=tags;$HOME
 set wildignore+=*.swp,*.bak,*.pyc,*.cache,*.o,*.d,tags,cscope.*
 map <F6> :exec("tag ".expand("<cword>"))<CR>
-map <F3> :%s/\s\+$//e 
+map <F3> :%s/\s\+$//e
 
