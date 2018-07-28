@@ -266,7 +266,13 @@ set -g mouse on
 # move status line to top
 #set -g status-position top
 
-bind o send-keys -t.- 'dmesg -we' Enter
+bind o send-keys -t. 'dmesg -we' Enter
 # home/end - Inicio/Fin keys enable
 bind -n End send-key C-e
 bind -n Home send-key C-a
+
+
+bind-key k command-prompt -p "send pane to:"  "join-pane -t ':%%'"
+bind-key l setw synchronize-panes off
+bind-key L setw synchronize-panes on
+

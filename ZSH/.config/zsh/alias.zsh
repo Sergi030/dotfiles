@@ -6,5 +6,3 @@ alias ..='cd ..'
 alias gti='git'
 alias vi='vim'
 alias GC='gcloud compute'
-
-

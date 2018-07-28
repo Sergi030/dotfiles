@@ -1,6 +1,6 @@
 [options]
 allow_bold = true
-clickable_url = true
+clickable_url = false
 dynamic_title = false
 font = Meslo LG M for Powerline Regular 12
 # Length of the scrollback buffer, 0 disabled the scrollback buffer
@@ -10,14 +10,12 @@ scrollback_lines = -1
 # "block", "underline" or "ibeam"
 cursor_shape = block
 
-
 [colors]
 foreground = #839496
 foreground_bold = #eee8d5
 background = #002b36
 cursor = #93a1a1
 
-# colors from color0 to color254 can be set
 color0 = #073642
 color1 = #dc322f
 color2 = #859900
@@ -34,5 +32,4 @@ color12 = #839496
 color13 = #6c71c4
 color14 = #93a1a1
 color15 = #fdf6e3
-
 

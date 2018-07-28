@@ -17,8 +17,7 @@ while read line; do
             }
         else
             [[ -z "${BLOCK_BUTTON}" ]] || {
-                xrandr --auto
-                xrandr --output "${output}" --left-of eDP1
+                ~/.screenlayout/default.sh
                 pkill -RTMIN+4 i3blocks
             }
 
