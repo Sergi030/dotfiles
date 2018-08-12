@@ -22,6 +22,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
+Plugin 'ayu-theme/ayu-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -29,7 +30,7 @@ call vundle#end()            " required
 "}}}
 
 " Colors {{{
-set background=dark
+"set background=dark
 colorscheme solarized         " awesome colorscheme
 syntax enable
 " }}}
@@ -129,5 +130,12 @@ let g:airline#extensions#syntastic#enabled = 1
 set tags=tags;$HOME
 set wildignore+=*.swp,*.bak,*.pyc,*.cache,*.o,*.d,tags,cscope.*
 map <F6> :exec("tag ".expand("<cword>"))<CR>
-map <F3> :%s/\s\+$//e
 
+map <F3> :retab;%s/\s\+$//e
+
+set termguicolors     " enable true colors support
+let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+
+set cursorline
