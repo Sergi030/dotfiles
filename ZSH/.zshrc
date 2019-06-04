@@ -23,7 +23,8 @@ plugins=(
   docker-compose
 )
 
+compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+
 bindkey "[1~" beginning-of-line
 bindkey "[4~" end-of-line
 source $ZSH/oh-my-zsh.sh
-source ~/.profile
