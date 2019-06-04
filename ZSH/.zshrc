@@ -23,6 +23,8 @@ plugins=(
   docker-compose
 )
 
+autoload -Uz compinit
+compinit
 compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 bindkey "[1~" beginning-of-line
