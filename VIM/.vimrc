@@ -23,6 +23,8 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'dense-analysis/ale'
+Plugin 'Sergi030/vim-sisa-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -131,11 +133,15 @@ set tags=tags;$HOME
 set wildignore+=*.swp,*.bak,*.pyc,*.cache,*.o,*.d,tags,cscope.*
 map <F6> :exec("tag ".expand("<cword>"))<CR>
 
-map <F3> :retab;%s/\s\+$//e
+map <F3> :%s/\s\+$//e
 
 set termguicolors     " enable true colors support
 let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
+"let g:ale_sign_column_always=1
 set cursorline
+
+"au BufRead,BufNewFile *.sisa set filetype=sisa
+"au BufRead,BufNewFile *.s set filetype=sisa

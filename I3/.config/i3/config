@@ -3,20 +3,32 @@
 # modKey "WIN"
 set $mod Mod4
 focus_follows_mouse no
-#{{{Program/Scripts
+#{{{Scripts and keybindings
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
 # start a terminal
 bindsym $mod+Return exec termite
 
-
+# Volume
 bindsym XF86AudioRaiseVolume exec volume.sh up
 bindsym XF86AudioLowerVolume exec volume.sh down
 bindsym XF86AudioMute exec volume.sh mute
 
+# In case the play and the pause are the same buttons
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# In case you have different keys for play and pause
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Bright
 bindsym XF86MonBrightnessUp exec brightness.sh up
 bindsym XF86MonBrightnessDown exec brightness.sh down
 
+# imprPANT
 bindsym Print exec "flameshot gui"
 bindsym $mod+Print exec "flameshot gui"
 bindsym Ctrl+Shift+Print exec "flameshot gui"
@@ -184,7 +196,7 @@ bindsym $mod+r mode "resize"
 #{{{Background and LockScreen
 # Background
 #BetterLockScreen
-bindsym $mod+o exec betterlockscreen -l
+bindsym $mod+o exec dm-tool lock
 
 #}}}
 

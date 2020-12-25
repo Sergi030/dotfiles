@@ -1,0 +1,36 @@
+#!/bin/bash
+# Script to execute given commands inside docker.
+# Mounts worldsensing repos into docker with same path as in host.
+# Then sets workdir same as workdir, this allows working inside the
+# docker with same paths as in host machine.
+COMMANDS="$@"
+DOCKER_NAME_FULL='worldsensing/ls_compiler:1.0.0'
+#####################################################################
+# Set below the folder containing all your worldsensing repositories.
+# This is required since FW compilation requires more than one repo,
+# hence Docker must be able to see all your WS repos.
+WS_REPOS_ROOT_DIR="/home/sgarcia/Programacio"
+#####################################################################
+if [ -z "$WS_REPOS_ROOT_DIR" ]; then
+    echo "Set your repositories root dir before using the script"
+    exit 1
+fi
+
+# Check whether docker daemon is running:
+systemctl is-active docker &>/dev/null
+if [ "$?" != "0" ]; then
+    echo "Docker service not running, please start it..."
+    systemctl start docker
+fi
+
+# Run docker with compiler
+# Ensures docker is ran with same user that is executing this script.
+# --privileged gives access to USB devices, this is done in order to launch
+#              JLink within docker.
+docker run -v ${WS_REPOS_ROOT_DIR}:${WS_REPOS_ROOT_DIR} \
+           -e LOCAL_USER_ID=$(id -u) \
+           -e LOCAL_GROUP_ID=$(id -g) \
+           --privileged \
+           --workdir "$(pwd)" \
+           --rm \
+           -it "${DOCKER_NAME_FULL}" "${COMMANDS}"
