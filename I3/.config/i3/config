@@ -7,7 +7,7 @@ focus_follows_mouse no
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
 # start a terminal
-bindsym $mod+Return exec termite || gnome-terminal
+bindsym $mod+Return exec termite
 
 
 bindsym XF86AudioRaiseVolume exec volume.sh up

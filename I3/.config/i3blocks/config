@@ -10,13 +10,6 @@ command=monitor.sh
 interval=60
 signal=4
 
-
-[Train]
-label= ℹ 
-command=next-train.py
-interval=120
-border=#C71585
-
 [volume]
 label=   
 command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "__nmtui" || true) && volume_control.py signal) || volume_control.py toggle );volume_control.py i3blocks
@@ -31,7 +24,6 @@ command=backlight.sh
 interval=10
 signal=2
 border=#d79921
-
 
 [wireless]
 label=  
