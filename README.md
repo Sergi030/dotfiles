@@ -21,8 +21,7 @@ git clone git@github.com:Sergi030/dotfiles.git .dotfiles
 
 1. Install I3 and dependencies
 ```bash
-yay -Sy i3-gaps i3blocks pavucontrol ttf-font-awesome ttf-font-awesome-4 alsa-utils flameshot rofi
-
+yay -Sy i3-gaps i3blocks pavucontrol ttf-font-awesome ttf-font-awesome-4 alsa-utils flameshot rofi playerctl
 ```
 
 
