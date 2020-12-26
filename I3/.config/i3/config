@@ -3,79 +3,6 @@
 # modKey "WIN"
 set $mod Mod4
 focus_follows_mouse no
-#{{{Program/Scripts
-# start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
-# start a terminal
-bindsym $mod+Return exec termite
-
-
-bindsym XF86AudioRaiseVolume exec volume.sh up
-bindsym XF86AudioLowerVolume exec volume.sh down
-bindsym XF86AudioMute exec volume.sh mute
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-bindsym XF86MonBrightnessUp exec brightness.sh up
-bindsym XF86MonBrightnessDown exec brightness.sh down
-
-bindsym Print exec "flameshot gui"
-bindsym $mod+Print exec "flameshot gui"
-bindsym Ctrl+Shift+Print exec "flameshot gui"
-bindsym Shift+Print exec "flameshot gui"
-
-#}}}
-
-#{{{Focus windows Keybindings
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# kill focused window
-bindsym $mod+Shift+q kill
-#}}}
-
-#{{{Move Windows Keybindings
-# move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# }}}
-
-#{{{ windows mode - container/tiling/floating/fullscreen
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-bindsym $mod+g fullscreen global
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-#}}}
 
 #{{{Workspace Changer
 
@@ -152,6 +79,80 @@ bindsym $mod+Shift+F9 move container to workspace 19
 bindsym $mod+Shift+F10 move container to workspace 20
 bindsym $mod+Shift+F11 ove container to workspace 21
 bindsym $mod+Shift+F12 ove container to workspace 22
+#}}}
+
+#{{{Program/Scripts
+# start program launcher
+bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
+# start a terminal
+bindsym $mod+Return exec termite
+
+
+bindsym XF86AudioRaiseVolume exec volume.sh up
+bindsym XF86AudioLowerVolume exec volume.sh down
+bindsym XF86AudioMute exec volume.sh mute
+bindsym XF86AudioPlay exec playerctl play-pause || `i3 "workspace 10" && nohup spotify & sleep 0.5 && i3 "workspace 1" && playerctl play-pause && i3-msg 'rename workspace 10 to "spotify"'`
+bindsym XF86AudioPause exec playerctl play-pause || `"workspace 10" && nohup spotify & sleep 0.5 && i3 "workspace 1" && playerctl play-pause && i3-msg 'rename workspace 10 to "spotify"'`
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym XF86MonBrightnessUp exec brightness.sh up
+bindsym XF86MonBrightnessDown exec brightness.sh down
+
+bindsym Print exec "flameshot gui"
+bindsym $mod+Print exec "flameshot gui"
+bindsym Ctrl+Shift+Print exec "flameshot gui"
+bindsym Shift+Print exec "flameshot gui"
+
+#}}}
+
+#{{{Focus windows Keybindings
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+ntilde focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# kill focused window
+bindsym $mod+Shift+q kill
+#}}}
+
+#{{{Move Windows Keybindings
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# }}}
+
+#{{{ windows mode - container/tiling/floating/fullscreen
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+bindsym $mod+g fullscreen global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 #}}}
 
 #{{{ Reload/Restart/exit I3
