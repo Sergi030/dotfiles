@@ -13,6 +13,10 @@ bindsym $mod+Return exec termite
 bindsym XF86AudioRaiseVolume exec volume.sh up
 bindsym XF86AudioLowerVolume exec volume.sh down
 bindsym XF86AudioMute exec volume.sh mute
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
 bindsym XF86MonBrightnessUp exec brightness.sh up
 bindsym XF86MonBrightnessDown exec brightness.sh down
