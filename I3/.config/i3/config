@@ -88,9 +88,10 @@ bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
 bindsym $mod+Return exec termite
 
 
-bindsym XF86AudioRaiseVolume exec volume.sh up
-bindsym XF86AudioLowerVolume exec volume.sh down
-bindsym XF86AudioMute exec volume.sh mute
+bindsym XF86AudioRaiseVolume exec volume.sh up && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec volume.sh down && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec volume.sh mute && pkill -RTMIN+1 i3blocks
+
 bindsym XF86AudioPlay exec playerctl play-pause || `i3 "workspace 10" && nohup spotify & sleep 0.5 && i3 "workspace 1" && playerctl play-pause && i3-msg 'rename workspace 10 to "spotify"'`
 bindsym XF86AudioPause exec playerctl play-pause || `"workspace 10" && nohup spotify & sleep 0.5 && i3 "workspace 1" && playerctl play-pause && i3-msg 'rename workspace 10 to "spotify"'`
 bindsym XF86AudioNext exec playerctl next
@@ -296,4 +297,5 @@ for_window [instance="__nmtui"] floating enable
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
+exec uxplay -n Arch
 

@@ -10,6 +10,13 @@ command=monitor.sh
 interval=60
 signal=4
 
+[viper]
+label= ▲ 
+command=viper.py
+interval=10
+signal=2
+border=#d79921
+
 [volume]
 label=   
 command=[[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ((/usr/bin/pavucontrol -t 3 --name "__nmtui" || true) && volume_control.py signal) || volume_control.py toggle );volume_control.py i3blocks

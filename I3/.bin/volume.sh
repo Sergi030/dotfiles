@@ -1,16 +1,18 @@
 #!/bin/bash
 
+# Show a volume bar like ------- or Muted
+# 
 # You can call this script like this:
 # $./volume.sh up
 # $./volume.sh down
 # $./volume.sh mute
 
 function get_volume {
-    amixer -D pulse get Master | grep -o "\[.*%\]" | grep -o "[0-9]*" | head -n1
+    pamixer --get-volume 
 }
 
 function is_mute {
-    amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
+    pamixer --get-mute
 }
 
 function send_notification {
@@ -25,26 +27,26 @@ function send_notification {
 volume=`get_volume`
 case $1 in
     up)
-	# Set the volume on (if it was muted)
-	amixer -D pulse set Master on > /dev/null
-	# Up the volume (+ 5%)
-	amixer -D pulse sset Master 5%+ > /dev/null
-	send_notification
+        # Set the volume on (if it was muted)
+        pamixer -u
+           # up the volume (+ 5%)
+        pamixer -i 5
+        send_notification
 	;;
     down)
-	amixer -D pulse set Master on > /dev/null
-	amixer -D pulse sset Master 5%- > /dev/null
-	send_notification
+        pamixer -u
+        pamixer -d 5
+	    send_notification
 	;;
     mute)
-    	# Toggle mute
-	amixer -D pulse set Master 1+ toggle > /dev/null
-	if is_mute ; then
-	    dunstify -a "VOLUME" -r 2593 -u normal "Mute"
-	else
-	    send_notification
-	fi
-	;;
+        # Toggle mute
+        pamixer -t
+	    if is_mute ; then
+            dunstify -a "VOLUME" -r 2593 -u normal "Mute"
+        else
+            send_notification
+        fi
+    ;;
 esac
 
 echo "$volume "
