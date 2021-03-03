@@ -80,7 +80,10 @@ rm -rf fonts
 ```
 
 3. Stow termite
+
+```bash
 cd ~/.dotfiles && stow TERMITE && cd -
+```
 
 ## ZSH
 1. Install [ZSH](https://www.zsh.org/)
