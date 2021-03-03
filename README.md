@@ -110,13 +110,15 @@ chsh -s /bin/zsh
 ```
 
 ## TMUX
+My Tmux configuration is from [gpakosz](https://github.com/gpakosz/.tmux)
+
 1. Install [tmux](https://github.com/tmux/tmux)
 
 ```bash
 yay -Sy tmux
 ```
 
-2. Stow ZSH
+2. Stow TMUX
 
 ```bash
 cd ~/.dotfiles && stow TMUX && cd -
