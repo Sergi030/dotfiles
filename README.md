@@ -109,4 +109,16 @@ rm ~/.zshrc && cd ~/.dotfiles && stow ZSH && cd -
 chsh -s /bin/zsh
 ```
 
+## TMUX
+1. Install [tmux](https://github.com/tmux/tmux)
+
+```bash
+yay -Sy tmux
+```
+
+2. Stow ZSH
+
+```bash
+cd ~/.dotfiles && stow TMUX && cd -
+```
 
