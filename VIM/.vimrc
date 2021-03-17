@@ -132,7 +132,7 @@ set tags=tags;$HOME
 set wildignore+=*.swp,*.bak,*.pyc,*.cache,*.o,*.d,tags,cscope.*
 map <F6> :exec("tag ".expand("<cword>"))<CR>
 
-map <F3> :retab;%s/\s\+$//e
+map <F3> :%s/\s\+$//e
 
 set termguicolors     " enable true colors support
 let ayucolor="mirage" " for mirage version of theme

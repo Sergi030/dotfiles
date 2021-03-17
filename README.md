@@ -80,7 +80,10 @@ rm -rf fonts
 ```
 
 3. Stow termite
+
+```bash
 cd ~/.dotfiles && stow TERMITE && cd -
+```
 
 ## ZSH
 1. Install [ZSH](https://www.zsh.org/)
@@ -106,4 +109,18 @@ rm ~/.zshrc && cd ~/.dotfiles && stow ZSH && cd -
 chsh -s /bin/zsh
 ```
 
+## TMUX
+My Tmux configuration is from [gpakosz](https://github.com/gpakosz/.tmux)
+
+1. Install [tmux](https://github.com/tmux/tmux)
+
+```bash
+yay -Sy tmux
+```
+
+2. Stow TMUX
+
+```bash
+cd ~/.dotfiles && stow TMUX && cd -
+```
 
