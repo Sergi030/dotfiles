@@ -5,7 +5,6 @@ device_manager = DeviceManager()
 
 viper = None
 for device in device_manager.devices:
-    print(device.name)
     
     if "Razer Viper Ultimate (Wireless)" == device.name:
         viper = device

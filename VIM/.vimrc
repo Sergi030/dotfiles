@@ -23,6 +23,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -138,4 +139,17 @@ let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 
+
+au BufRead,BufNewFile *.t set filetype=cpp
+au BufRead,BufNewFile *.rep set filetype=cpp
+
 set cursorline
+
+let g:ycm_extra_conf_globlist = ['/home/sgarcia/Programacio/INDI/.ycm_extra_conf.py']
+
+set statusline+=%{gutentags#statusline()}
+
+let NERDTreeIgnore = ['\.pyc$', '\.o']
+
+let g:syntastic_disabled_filetypes=['h', 'cpp']
+"let g:ycm_show_diagnostics_ui = 0
