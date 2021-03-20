@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PROFILE_ID=$(pritunl-client list | grep "WSDefault" | cut -d '|' -f 2 | sed 's/ //g')
+
+ip addr show dev tun0 &> /dev/null
+if [ $? -ne 0 ]
+then
+    pritunl-client start $PROFILE_ID
+
+    ip addr show dev tun0 &> /dev/null
+    ex=$?
+    while [ $ex -ne 0 ]
+    do
+        ip addr show dev tun0 &> /dev/null
+        ex=$?
+    done
+    
+    
+else
+    pritunl-client stop $PROFILE_ID
+fi
