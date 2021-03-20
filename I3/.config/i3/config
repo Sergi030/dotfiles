@@ -293,7 +293,8 @@ for_window [class="LoRaSlotTimeCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [instance="__nmtui"] floating enable
-
+for_window [Title="Control de Volumen"] floating enable, resize set 800px 670px
+for_window [class="Form"] floating enable, resize set 800px 670px
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
