@@ -87,6 +87,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config
 # start a terminal
 bindsym $mod+Return exec termite
 
+bindsym $mod+space exec keyboard.sh
 
 bindsym XF86AudioRaiseVolume exec volume.sh up && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec volume.sh down && pkill -RTMIN+1 i3blocks
@@ -153,7 +154,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+###bindsym $mod+space focus mode_toggle
 #}}}
 
 #{{{ Reload/Restart/exit I3

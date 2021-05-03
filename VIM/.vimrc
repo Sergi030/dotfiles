@@ -24,6 +24,7 @@ Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'vim-syntastic/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -152,4 +153,5 @@ set statusline+=%{gutentags#statusline()}
 let NERDTreeIgnore = ['\.pyc$', '\.o']
 
 let g:syntastic_disabled_filetypes=['h', 'cpp']
+let g:syntastic_python_checkers = ['pylint']
 "let g:ycm_show_diagnostics_ui = 0

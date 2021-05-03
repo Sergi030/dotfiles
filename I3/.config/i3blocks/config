@@ -13,7 +13,6 @@ signal=4
 [printunl]
 label= ▲ 
 command=echo "VPN " && [[ -z "${BLOCK_BUTTON}" ]] || ( [[ "${BLOCK_BUTTON}" == "1" ]] && ws_vpn)
-
 interval=10
 signal=2
 border=#f79921
