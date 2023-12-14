@@ -4,31 +4,39 @@
 set $mod Mod4
 focus_follows_mouse no
 
+#set $secondary_screen DP1-3
+#set $primary_screen HDMI2
+set $secondary_screen HDMI2
+set $secondary_screen eDP1
+
+set $primary_screen DP1
+#set $secondary_screen eDP1 
+
 #{{{Workspace Changer
 
-workspace 1 output HDMI2
-workspace 2 output HDMI2
-workspace 3 output HDMI2
-workspace 4 output HDMI2
-workspace 5 output HDMI2
-workspace 6 output HDMI2
-workspace 7 output HDMI2
-workspace 8 output HDMI2
-workspace 9 output HDMI2
-workspace 10 output HDMI2
+workspace 1 output  $primary_screen 
+workspace 2 output  $primary_screen 
+workspace 3 output  $primary_screen 
+workspace 4 output  $primary_screen 
+workspace 5 output  $primary_screen 
+workspace 6 output  $primary_screen 
+workspace 7 output  $primary_screen 
+workspace 8 output  $primary_screen 
+workspace 9 output  $primary_screen 
+workspace 10 output $primary_screen 
 
-workspace 11 output eDP1
-workspace 12 output eDP1
-workspace 13 output eDP1
-workspace 14 output eDP1
-workspace 15 output eDP1
-workspace 16 output eDP1
-workspace 17 output eDP1
-workspace 18 output eDP1
-workspace 19 output eDP1
-workspace 20 output eDP1
-workspace 21 output eDP1
-workspace 22 output eDP1
+workspace 11 output $secondary_screen 
+workspace 12 output $secondary_screen 
+workspace 13 output $secondary_screen 
+workspace 14 output $secondary_screen 
+workspace 15 output $secondary_screen 
+workspace 16 output $secondary_screen 
+workspace 17 output $secondary_screen 
+workspace 18 output $secondary_screen 
+workspace 19 output $secondary_screen 
+workspace 20 output $secondary_screen 
+workspace 21 output $secondary_screen 
+workspace 22 output $secondary_screen 
 
 
 # switch to workspace
@@ -83,7 +91,7 @@ bindsym $mod+Shift+F12 ove container to workspace 22
 
 #{{{Program/Scripts
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show run -config ~/.config/rofi/config -display-run "run: "
+bindsym $mod+d exec --no-startup-id rofi -show run -display-run "run: "
 # start a terminal
 bindsym $mod+Return exec termite
 
@@ -105,15 +113,16 @@ bindsym Print exec "flameshot gui"
 bindsym $mod+Print exec "flameshot gui"
 bindsym Ctrl+Shift+Print exec "flameshot gui"
 bindsym Shift+Print exec "flameshot gui"
+bindsym $mod+p exec "autorandr -c && notify-send -a Screen Autodetecting..."
 
 #}}}
 
 #{{{Focus windows Keybindings
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+ntilde focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -232,7 +241,7 @@ client.background $black
 
 
 # Start compton
-exec --no-startup-id compton -b
+#exec --no-startup-id compton -b
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -250,8 +259,6 @@ bar {
     separator_symbol "■"
     bindsym button4 nop
     bindsym button5 nop
-    tray_output eDP1
-    tray_output LVDS-0
     tray_padding 0
     height $height
     colors {
@@ -280,6 +287,7 @@ for_window [class="AggCfgSamplingPeriodSlotTime.py"] floating enable
 for_window [class="SetPrcodeSn.py"] floating enable
 for_window [class="LoRaKeysCfg.py"] floating enable
 for_window [class="LoRaPassword.py"] floating enable
+for_window [class="LinkCheckCoverageTest.py"] floating enable
 for_window [class="SetHWVersion.py"] floating enable
 for_window [class="VW5Cfg.py"] floating enable
 for_window [class="MDTChCfg.py"] floating enable
@@ -296,8 +304,8 @@ for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [instance="__nmtui"] floating enable
 for_window [Title="Control de Volumen"] floating enable, resize set 800px 670px
 for_window [class="Form"] floating enable, resize set 800px 670px
+for_window [Title="LinkCheckCoverageTest"] floating enable
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
-exec uxplay -n Arch
-
+exec batsignal -b 

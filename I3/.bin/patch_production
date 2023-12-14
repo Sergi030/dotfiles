@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -e ./install_istation.sh ]
+then
+    git apply ~/.config/loadsensing/production-diff
+fi
+
+#sed s/+OPKGSERVER="10.20.10.186"/+OPKGSERVER="$SERVER_IP"/g ~/.config/loadsensing/production-diff
