@@ -6,10 +6,10 @@ focus_follows_mouse no
 
 #set $secondary_screen DP1-3
 #set $primary_screen HDMI2
-set $secondary_screen HDMI2
-set $secondary_screen eDP1
+#set $secondary_screen HDMI2
+set $secondary_screen eDP-1 
 
-set $primary_screen DP1
+set $primary_screen HDMI-2
 #set $secondary_screen eDP1 
 
 #{{{Workspace Changer
@@ -305,7 +305,14 @@ for_window [instance="__nmtui"] floating enable
 for_window [Title="Control de Volumen"] floating enable, resize set 800px 670px
 for_window [class="Form"] floating enable, resize set 800px 670px
 for_window [Title="LinkCheckCoverageTest"] floating enable
+for_window [instance="guake"] floating enable default_floating_border pixel 0
+
+
+
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
 exec batsignal -b 
+
+exec /usr/libexec/gnome-settings-daemon
+exec --no-startup-id xscreensaver -no-splash

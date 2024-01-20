@@ -12,7 +12,8 @@ set nocompatible
 Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/deb.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
@@ -162,4 +163,3 @@ nnoremap gdl :diffget //3<CR>
 let g:flake8_show_in_file=1
 let g:flake8_show_in_gutter=1
 autocmd FileType python map <buffer> <F4> :call flake8#Flake8()<CR>
-
