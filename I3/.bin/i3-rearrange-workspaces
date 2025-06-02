@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Get outputs
+OUTPUTS_JSON=$(i3-msg -t get_outputs)
+
+# Detect primary and secondary outputs
+PRIMARY=$(echo "$OUTPUTS_JSON" | jq -r '.[] | select(.primary == true and .active == true) | .name')
+SECONDARY=$(echo "$OUTPUTS_JSON" | jq -r --arg PRIMARY "$PRIMARY" '.[] | select(.active == true and .name != $PRIMARY) | .name' | head -n 1)
+
+if [[ -z "$PRIMARY" || -z "$SECONDARY" ]]; then
+  echo "Could not detect both primary and secondary outputs"
+  exit 1
+fi
+
+# Get current workspaces info
+WORKSPACES_JSON=$(i3-msg -t get_workspaces)
+
+# Extract focused workspace
+FOCUSED_WS=$(echo "$WORKSPACES_JSON" | jq -r '.[] | select(.focused == true) | .name')
+
+# Get list of existing workspace names
+EXISTING_WORKSPACES=$(echo "$WORKSPACES_JSON" | jq -r '.[].name')
+
+# Function to check if a workspace exists
+workspace_exists() {
+  echo "$EXISTING_WORKSPACES" | grep -qx "$1"
+}
+
+# Move existing workspaces 1–10 to PRIMARY
+for i in $(seq 1 10); do
+  if workspace_exists "$i"; then
+    i3-msg "workspace $i; move workspace to output $PRIMARY"
+  fi
+done
+
+# Move existing workspaces 11–22 to SECONDARY
+for i in $(seq 11 22); do
+  if workspace_exists "$i"; then
+    i3-msg "workspace $i; move workspace to output $SECONDARY"
+  fi
+done
+
+# Restore focus to original workspace
+if [[ -n "$FOCUSED_WS" ]]; then
+  i3-msg "workspace $FOCUSED_WS"
+fi

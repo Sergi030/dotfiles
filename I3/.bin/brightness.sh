@@ -6,7 +6,7 @@
 # $./volume.sh mute
 
 function get_brightness {
-    xbacklight -get | cut -d '.' -f 1
+    light -G | cut -d '.' -f 1
 }
 
 function send_notification {
@@ -23,13 +23,13 @@ function send_notification {
 brightness=`get_brightness`
 case $1 in
     up)
-	    xbacklight -inc 10
+	    light -A 10
         send_notification
 	;;
     down)
         if [ $brightness -gt 10 ]
         then
-            xbacklight -dec 10
+            light -U 10
         fi        
 	    send_notification
 	;;

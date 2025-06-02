@@ -4,13 +4,14 @@
 set $mod Mod4
 focus_follows_mouse no
 
-#set $secondary_screen DP1-3
-#set $primary_screen HDMI2
-#set $secondary_screen HDMI2
-set $secondary_screen eDP-1 
 
-set $primary_screen HDMI-2
-#set $secondary_screen eDP1 
+#set $primary_screen DP1-1
+#set $secondary_screen DP1-3-1
+#set $primary_screen HDMI2
+#set $secondary_screen eDP1
+
+include /tmp/i3_screens
+
 
 #{{{Workspace Changer
 
@@ -85,8 +86,8 @@ bindsym $mod+Shift+F7 move container to workspace 17
 bindsym $mod+Shift+F8 move container to workspace 18
 bindsym $mod+Shift+F9 move container to workspace 19
 bindsym $mod+Shift+F10 move container to workspace 20
-bindsym $mod+Shift+F11 ove container to workspace 21
-bindsym $mod+Shift+F12 ove container to workspace 22
+bindsym $mod+Shift+F11 move container to workspace 21
+bindsym $mod+Shift+F12 move container to workspace 22
 #}}}
 
 #{{{Program/Scripts
@@ -171,6 +172,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r exec --no-startup-id sh -c '~/.bin/get-screen-config-i3 > /tmp/i3_screens && i3-msg reload'
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 #}}}
@@ -200,7 +203,8 @@ bindsym $mod+r mode "resize"
 #{{{Background and LockScreen
 # Background
 #BetterLockScreen
-bindsym $mod+o exec "dm-tool lock"
+#bindsym $mod+o exec "dm-tool lock"
+bindsym $mod+o exec "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
 
 #}}}
 
@@ -248,7 +252,8 @@ client.background $black
 #bar {
 #    status_command i3blocks
 #}
-set $height 34
+set $height 30
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 bar {
 #    verbose yes
     status_command i3blocks
@@ -315,4 +320,8 @@ exec feh --bg-scale ~/.wallpaper/image.png
 exec batsignal -b 
 
 exec /usr/libexec/gnome-settings-daemon
-exec --no-startup-id xscreensaver -no-splash
+exec --no-startup-id /usr/bin/gnome-screensaver
+exec picom -b -d :0.@
+#exec --no-startup-id gnome-flashback
+exec --no-startup-id parcellite
+
