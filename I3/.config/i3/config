@@ -94,9 +94,7 @@ bindsym $mod+Shift+F12 move container to workspace 22
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show run -display-run "run: "
 # start a terminal
-bindsym $mod+Return exec termite
-
-bindsym $mod+space exec keyboard.sh
+bindsym $mod+Return exec alacritty 
 
 bindsym XF86AudioRaiseVolume exec volume.sh up && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec volume.sh down && pkill -RTMIN+1 i3blocks
