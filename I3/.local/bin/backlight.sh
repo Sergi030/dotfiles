@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-xbacklight $@ > /dev/null 2>&1
-if [ $? -eq 0  ]
-then
-    echo "$(xbacklight $@ | cut -d '.' -f 1) "
-    pkill -RTMIN+2 i3blocks
+
+# Si hay argumentos (por ejemplo: s 10%+), aplicar el cambio
+if [[ $# -gt 0 ]]; then
+    brightnessctl "$@" > /dev/null 2>&1
 fi
+
+LEVEL=$(brightnessctl g)
+MAX=$(brightnessctl m)
+PERCENT=$(( 100 * LEVEL / MAX ))
+
+echo "${PERCENT}% 
+
+

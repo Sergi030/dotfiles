@@ -201,8 +201,8 @@ bindsym $mod+r mode "resize"
 #{{{Background and LockScreen
 # Background
 #BetterLockScreen
-#bindsym $mod+o exec "dm-tool lock"
-bindsym $mod+o exec "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
+bindsym $mod+o exec "dm-tool lock"
+#bindsym $mod+o exec "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
 
 #}}}
 
@@ -304,14 +304,11 @@ for_window [class="SisgeoChCfg.py"] floating enable
 for_window [class="LoRaSlotTimeCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
 for_window [class="LoRaAddrCfg.py"] floating enable
-for_window [instance="__nmtui"] floating enable
+for_window [Title="__nmtui"] floating enable
 for_window [Title="Control de Volumen"] floating enable, resize set 800px 670px
 for_window [class="Form"] floating enable, resize set 800px 670px
 for_window [Title="LinkCheckCoverageTest"] floating enable
 for_window [instance="guake"] floating enable default_floating_border pixel 0
-
-
-
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
@@ -323,3 +320,4 @@ exec picom -b -d :0.@
 #exec --no-startup-id gnome-flashback
 exec --no-startup-id parcellite
 
+exec --no-startup-id setxkbmap -layout us,es

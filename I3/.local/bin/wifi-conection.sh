@@ -10,3 +10,7 @@ then
     fi
 fi
 
+if [[ -n "$BLOCK_BUTTON" ]]; then
+    alacritty -T "__nmtui" --command nmtui-connect 
+    exit 0
+fi
