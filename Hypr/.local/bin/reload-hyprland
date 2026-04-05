@@ -1,0 +1,137 @@
+#!/bin/bash
+
+profile="$1"
+principal="eDP-1"
+secondary=""
+tertiary=""
+#monitors=$(hyprctl monitors -j | jq -r '.[].name')
+case "$profile" in
+    office)
+        principal="DP-6"
+        secondary="DP-7"
+        tertiary="eDP-1"
+        ;;
+    office2)
+        principal="DP-5"
+        secondary="DP-6"
+        tertiary="eDP-1"
+        ;;
+    office3)
+        principal="DP-5"
+        secondary="DP-7"
+        tertiary="eDP-1"
+        ;;
+    office5)
+        principal="HDMI-A-1"
+        secondary="eDP-1"
+        ;;
+    home)
+        principal="DP-5"
+        secondary="DP-8"
+        tertiary="eDP-1"
+        ;;
+    home2)
+        principal="DP-11"
+        secondary="DP-7"
+        tertiary="eDP-1"
+        ;;
+    home3)
+        principal="DP-6"
+        secondary="DP-10"
+        tertiary="eDP-1"
+        ;;
+esac
+
+workspaces_file="$HOME/.config/hypr/workspaces.conf"
+
+{
+  echo "# Generated automatically for profile '$profile' on $(date '+%Y-%m-%d %H:%M:%S')"
+  echo
+
+  #
+  # Workspaces 1–10 → principal monitor
+  #
+  echo "workspace=1,monitor:$principal,default:true"
+  for i in {2..10}; do
+    echo "workspace=$i,monitor:$principal"
+  done
+
+  #
+  # Workspaces 11–19 → secondary monitor (only if present)
+  #
+  if [ -n "$secondary" ]; then
+    echo "workspace=11,monitor:$secondary,default:true"
+    for i in {12..19}; do
+      echo "workspace=$i,monitor:$secondary"
+    done
+  fi
+
+  #
+  # Workspace 20 → tertiary monitor, if it exists;
+  # otherwise → secondary monitor
+  #
+  if [ -n "$tertiary" ]; then
+    echo "workspace=20,monitor:$tertiary"
+  fi
+
+} > "$workspaces_file"
+
+# small delay
+sleep 0.2
+
+# 1–10 → principal
+for i in {1..10}; do
+    hyprctl dispatch moveworkspacetomonitor "$i" "$principal" >/dev/null 2>&1
+done
+
+# 11–19 → secondary
+if [ -n "$secondary" ]; then
+    for i in {11..19}; do
+        hyprctl dispatch moveworkspacetomonitor "$i" "$secondary" >/dev/null 2>&1
+    done
+fi
+
+# 20 → tertiary > secondary > principal
+if [ -n "$tertiary" ]; then
+    hyprctl dispatch moveworkspacetomonitor 20 "$tertiary" >/dev/null 2>&1
+elif [ -n "$secondary" ]; then
+    hyprctl dispatch moveworkspacetomonitor 20 "$secondary" >/dev/null 2>&1
+else
+    hyprctl dispatch moveworkspacetomonitor 20 "$principal" >/dev/null 2>&1
+fi
+
+
+
+# ensure swww daemon is running
+if ! pgrep -x swww-daemon >/dev/null 2>&1; then
+    swww-daemon &disown
+    sleep 0.5
+fi
+
+# set wallpaper to all screens
+swww img ~/Pictures/wallpapers/main.png
+
+sleep 1
+
+# kill all waybar instances and start a fresh one
+killall -wq  waybar
+waybar &disown
+
+# ensure wl-clip-persist is running
+if ! pgrep -x wl-clip-persist >/dev/null 2>&1; then
+    wl-clip-persist --clipboard regular &disown
+fi
+
+# ensure polkit agent is running
+systemctl --user start hyprpolkitagent 2>/dev/null
+
+
+# Reload Hyprland so it picks up the new file
+hyprctl reload
+
+sleep 2
+# cool notification
+notify-send -a "Monitor Profile" -i display \
+  "Workspace layout applied" \
+  "Profile: <b>$profile</b>"
+
