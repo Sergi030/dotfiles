@@ -1,0 +1,9 @@
+[Unit]
+Description=Kanshi output profile daemon
+
+[Service]
+ExecStart=/usr/bin/kanshi
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

@@ -1,46 +1,41 @@
 #!/bin/bash
 
-profile="$1"
+profile="$(kanshictl status | awk '{print $3}')"
 principal="eDP-1"
 secondary=""
 tertiary=""
-#monitors=$(hyprctl monitors -j | jq -r '.[].name')
+
+get_monitor_name_by_desc() {
+    local wanted_desc="$1"
+    hyprctl monitors all | awk -v desc="$wanted_desc" '
+        /^Monitor / {
+            mon=$2
+            sub(/\(.*/, "", mon)
+            current=mon
+        }
+        /^[[:space:]]*description: / {
+            line=$0
+            sub(/^[[:space:]]*description: /, "", line)
+            if (line == desc) {
+                print current
+                exit
+            }
+        }
+    '
+}
+
+
 case "$profile" in
-    office)
-        principal="DP-6"
-        secondary="DP-7"
-        tertiary="eDP-1"
-        ;;
-    office2)
-        principal="DP-5"
-        secondary="DP-6"
-        tertiary="eDP-1"
-        ;;
-    office3)
-        principal="DP-5"
-        secondary="DP-7"
-        tertiary="eDP-1"
-        ;;
-    office5)
-        principal="HDMI-A-1"
-        secondary="eDP-1"
-        ;;
     home)
-        principal="DP-5"
-        secondary="DP-8"
-        tertiary="eDP-1"
-        ;;
-    home2)
-        principal="DP-11"
-        secondary="DP-7"
-        tertiary="eDP-1"
-        ;;
-    home3)
-        principal="DP-6"
-        secondary="DP-10"
-        tertiary="eDP-1"
+        principal="AOC 27G2G4 0x00017409"
+        secondary="Dell Inc. DELL P2417H 5N99G7CQ1D9B"
         ;;
 esac
+
+principal="$(get_monitor_name_by_desc "$principal_desc")"
+secondary="$(get_monitor_name_by_desc "$secondary_desc")"
+echo "principal=$principal"
+echo "secondary=$secondary"
 
 workspaces_file="$HOME/.config/hypr/workspaces.conf"
 
@@ -102,20 +97,20 @@ fi
 
 
 
-# ensure swww daemon is running
-if ! pgrep -x swww-daemon >/dev/null 2>&1; then
-    swww-daemon &disown
+# ensure awww daemon is running
+if ! pgrep -x awww-daemon >/dev/null 2>&1; then
+    awww-daemon &disown
     sleep 0.5
 fi
 
 # set wallpaper to all screens
-swww img ~/Pictures/wallpapers/main.png
+awww img ~/.config/hypr/background.png
 
 sleep 1
 
-# kill all waybar instances and start a fresh one
-killall -wq  waybar
-waybar &disown
+if ! pgrep -x waybar >/dev/null; then
+    waybar & disown
+fi
 
 # ensure wl-clip-persist is running
 if ! pgrep -x wl-clip-persist >/dev/null 2>&1; then
@@ -125,11 +120,11 @@ fi
 # ensure polkit agent is running
 systemctl --user start hyprpolkitagent 2>/dev/null
 
-
 # Reload Hyprland so it picks up the new file
 hyprctl reload
 
 sleep 2
+
 # cool notification
 notify-send -a "Monitor Profile" -i display \
   "Workspace layout applied" \
