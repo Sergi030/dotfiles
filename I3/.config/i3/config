@@ -201,7 +201,7 @@ bindsym $mod+r mode "resize"
 #{{{Background and LockScreen
 # Background
 #BetterLockScreen
-bindsym $mod+o exec "dm-tool lock"
+bindsym $mod+o exec betterlockscreen -l
 #bindsym $mod+o exec "dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock"
 
 #}}}
@@ -312,12 +312,13 @@ for_window [instance="guake"] floating enable default_floating_border pixel 0
 
 
 exec feh --bg-scale ~/.wallpaper/image.png
-exec batsignal -b 
+#exec batsignal -b 
 
-exec /usr/libexec/gnome-settings-daemon
-exec --no-startup-id /usr/bin/gnome-screensaver
+#exec /usr/libexec/gnome-settings-daemon
+#exec --no-startup-id /usr/bin/gnome-screensaver
 exec picom -b -d :0.@
 #exec --no-startup-id gnome-flashback
 exec --no-startup-id parcellite
 
 exec --no-startup-id setxkbmap -layout us,es
+exec --no-startup-id betterlockscreen -u ~/.wallpaper/image.png

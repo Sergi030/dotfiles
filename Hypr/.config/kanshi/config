@@ -1,22 +1,17 @@
+profile home_tri {
+    output "Lenovo Group Limited T24i-2L VNA73FRH" enable mode 1920x1080@60 position 1920,0 scale 1 transform 180
+    output "AOC 27G2G4 0x00017409" enable mode 1920x1080@144 position 1920,1080 scale 1
+    output "Lenovo Group Limited T24i-2L VNA73FRP" enable mode 1920x1080@60 position 3840,500 scale 1 transform 270
+    output eDP-1 disable
+
+    exec reload-hyprland home_tri
+}
+
 profile home {
-    output DP-5 enable mode 1920x1080@60 position 1920,840 scale 1
-    output DP-8 enable position 3840,0 scale 1 transform 270
+    output "AOC 27G2G4 0x00017409" enable mode 1920x1080@60 position 1920,840 scale 1
+    output "Lenovo Group Limited T24i-2L VNA73FRP" enable mode 1920x1080@60 position 3840,0 scale 1 transform 270
     output eDP-1 disable
     exec reload-hyprland home
-}
-
-profile home2 {
-    output DP-11 enable mode 1920x1080@60 position 1920,840 scale 1
-    output DP-7 enable position 3840,0 scale 1 transform 270
-    output eDP-1 disable
-    exec reload-hyprland home2
-}
-
-profile home3 {
-    output DP-6 enable mode 1920x1080@60 position 1920,840 scale 1
-    output DP-10 enable position 3840,0 scale 1 transform 270
-    output eDP-1 disable
-    exec reload-hyprland home3
 }
 
 profile laptop {
@@ -46,8 +41,22 @@ profile office3 {
     exec reload-hyprland office3
 }
 
+profile office4 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-6 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-9 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland office4
+}
+
 profile office5 {
     output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
     output HDMI-A-1 enable mode 1920x1080@60 position 1920,1680 scale 1
     exec reload-hyprland office5
 }
+
+profile office6 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-1 enable mode 1920x1080@60 position 1920,1680 scale 1
+    exec reload-hyprland office6
+}
+

@@ -12,6 +12,6 @@ TTY=$3
 SAMPLING=${4:-10}
 GWPASS=$(ls_gw_pass $GWID | cut -d " " -f 2 | tail -n1)
 
-cd /home/sgarcia/Programacio/loadsensinggw/gateway-opkg/production-ls-klkgw/
+cd /home/sgarcia/Programacio/loadsensinggw03/gateway-opkg/production-ls-klkgw/
 ./setNodeConfig.sh ./fwlib $GWID $GWPASS $REGION $SAMPLING $TTY
 cd - &> /dev/null
