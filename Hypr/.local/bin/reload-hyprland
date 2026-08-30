@@ -80,7 +80,28 @@ case "$profile" in
         secondary="DP-10"
         tertiary="eDP-1"
         ;;
+    # archZeta (home desktop). Uses monitor descriptions rather than connector
+    # names: DP-N numbering shuffles between boots, descriptions do not.
+    zeta)
+        principal="AOC 27G2G4 0x00017409"
+        secondary="Dell Inc. DELL P2417H 5N99G7CQ1D9B"
+        tertiary=""
+        ;;
 esac
+
+# The profiles above mix two styles: connector names (DP-5, eDP-1) and monitor
+# descriptions. Resolve descriptions to whatever connector they landed on this
+# boot; leave anything already shaped like a connector untouched.
+resolve_monitor() {
+    case "$1" in
+        ""|eDP-[0-9]*|DP-[0-9]*|HDMI-A-[0-9]*) printf '%s' "$1" ;;
+        *) get_monitor_name_by_desc "$1" ;;
+    esac
+}
+
+principal="$(resolve_monitor "$principal")"
+secondary="$(resolve_monitor "$secondary")"
+tertiary="$(resolve_monitor "$tertiary")"
 
 workspaces_file="$HOME/.config/hypr/workspaces.conf"
 
@@ -148,7 +169,7 @@ fi
 # this runs inside kanshi.service, which is part of that target, and the job would
 # wait on itself. Just re-apply the wallpaper across the new monitor layout.
 for _ in $(seq 12); do
-    swww img ~/Pictures/wallpapers/main.png 2>/dev/null && break
+    awww img ~/Pictures/wallpapers/main.png 2>/dev/null && break
     sleep 0.25
 done
 

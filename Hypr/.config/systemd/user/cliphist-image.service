@@ -3,11 +3,14 @@ Description=Cliphist image clipboard watcher
 PartOf=graphical-session.target
 After=graphical-session.target
 ConditionEnvironment=WAYLAND_DISPLAY
+# Skip cleanly (not "failed") on machines without cliphist installed.
+ConditionFileIsExecutable=|/usr/bin/cliphist
+ConditionFileIsExecutable=|/usr/local/bin/cliphist
 StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/wl-paste --type image --watch /usr/bin/cliphist store
+ExecStart=/usr/bin/env wl-paste --type image --watch cliphist store
 Restart=always
 RestartSec=1
 

@@ -426,6 +426,19 @@ tmux_conf_uninstall_plugins_on_reload=true
 
 # -- custom variables ----------------------------------------------------------
 
+# -- local overrides -----------------------------------------------------------
+
+# Clear screen and scrollback without the upstream `run 'sleep 0.2'` between the
+# two, which adds a visible delay on every Ctrl-l. Sourced after .tmux.conf, so
+# this rebinding wins.
+bind -n C-l send-keys C-l \; clear-history
+
+# Note: default-terminal is deliberately NOT set here. Upstream's
+# _apply_tmux_256color() runs after this file is sourced and selects
+# tmux-256color whenever its terminfo entry exists, which is what we want and
+# what the old hand-patch in .tmux.conf used to do.
+
+
 # to define a custom #{foo} variable, define a POSIX shell function between the
 # '# EOF' and the '# "$@"' lines. Please note that the opening brace { character
 # must be on the same line as the function name otherwise the parse won't detect

@@ -8,7 +8,9 @@ StartLimitIntervalSec=0
 [Service]
 Type=simple
 Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
-ExecStart=/usr/local/bin/kanshi
+# Resolved via PATH: kanshi is /usr/local/bin (source build) here,
+# /usr/bin (packaged) on Arch.
+ExecStart=/usr/bin/env kanshi
 Restart=always
 RestartSec=2
 # reload-hyprland (run from kanshi's `exec`) spawns long-lived daemons

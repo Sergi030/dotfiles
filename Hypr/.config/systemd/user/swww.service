@@ -8,9 +8,9 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/swww-daemon
+ExecStart=%h/.local/bin/awww-daemon
 # Wait for the daemon's socket, then apply the wallpaper.
-ExecStartPost=/bin/sh -c 'for i in $(seq 20); do /usr/bin/swww query >/dev/null 2>&1 && break; sleep 0.25; done; /usr/bin/swww img %h/Pictures/wallpapers/main.png'
+ExecStartPost=/bin/sh -c 'for i in $(seq 20); do %h/.local/bin/awww query >/dev/null 2>&1 && break; sleep 0.25; done; %h/.local/bin/awww img %h/Pictures/wallpapers/main.png'
 Restart=always
 RestartSec=2
 

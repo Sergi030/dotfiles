@@ -5,3 +5,8 @@ VIM/.vim/swap
 VIM/.vim/backup/.vimrc~
 I3/.bin/__pycache__/
 **/zcompdump*
+
+# Generated, machine-specific: workspaces.conf by reload-hyprland,
+# monitors.conf by nwg-displays ("Do not edit manually").
+Hypr/.config/hypr/workspaces.conf
+Hypr/.config/hypr/monitors.conf

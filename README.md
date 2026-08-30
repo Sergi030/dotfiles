@@ -170,6 +170,26 @@ systemctl --user list-units 'kanshi*' 'waybar*' 'swww*' 'cliphist*' 'hypridle*'
 journalctl --user -u kanshi -e        # why a service died
 ```
 
+### Gotcha: stow folds drop-in directories, and systemd ignores them
+
+systemd does **not** follow a symlinked `foo.service.d` directory, and it fails
+*silently* — `systemctl --user show <unit> -p DropInPaths` just comes back empty
+and the packaged defaults apply. If stow folds `hypridle.service.d` into a single
+symlink, every override in it is quietly dropped.
+
+Keep the `.service.d` directories real so stow only symlinks the `.conf` files
+inside them:
+
+```bash
+mkdir -p ~/.config/systemd/user/{hypridle,waybar,hyprpolkitagent}.service.d
+cd ~/.dotfiles && stow Hypr
+systemctl --user show waybar -p DropInPaths   # must NOT be empty
+```
+
+Note that `kill -9` does not catch this: SIGKILL counts as a failure, so a unit
+left on the packaged `Restart=on-failure` still comes back and looks healthy.
+Test with `kill -TERM` (a clean exit) to tell `on-failure` and `always` apart.
+
 To add another autostart program, write a unit with
 `PartOf=graphical-session.target` / `WantedBy=graphical-session.target` and enable
 it — do not add `exec-once` lines to `hyprland.conf`, as those are unsupervised and
