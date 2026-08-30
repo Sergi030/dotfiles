@@ -6,3 +6,6 @@ VIM/.vim/backup/.vimrc~
 I3/.bin/__pycache__/
 **/zcompdump*
 Hypr/.config/hypr/workspaces.conf
+
+# Installers write into ~/.local/bin, which is a stow fold into this repo
+Hypr/.local/bin/claude
