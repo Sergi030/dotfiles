@@ -1,0 +1,19 @@
+[Unit]
+Description=kanshi dynamic display configuration
+Documentation=man:kanshi(1)
+PartOf=graphical-session.target
+# Never give up restarting: kanshi dying is exactly what we are fixing.
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+ExecStart=/usr/local/bin/kanshi
+Restart=always
+RestartSec=2
+# reload-hyprland (run from kanshi's `exec`) spawns long-lived daemons
+# (swww-daemon, waybar, wl-clip-persist). Only kill kanshi itself, never them.
+KillMode=process
+
+[Install]
+WantedBy=graphical-session.target

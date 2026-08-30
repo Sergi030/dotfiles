@@ -1,11 +1,36 @@
 #!/bin/bash
 
-profile="$1"
+profile="$(kanshictl status | awk '{print $3}')"
 principal="eDP-1"
 secondary=""
 tertiary=""
-#monitors=$(hyprctl monitors -j | jq -r '.[].name')
+
+get_monitor_name_by_desc() {
+    local wanted_desc="$1"
+    hyprctl monitors all | awk -v desc="$wanted_desc" '
+        /^Monitor / {
+            mon=$2
+            sub(/\(.*/, "", mon)
+            gsub(/ $/, "", mon)
+            current=mon
+        }
+        /^[[:space:]]*description: / {
+            line=$0
+            sub(/^[[:space:]]*description: /, "", line)
+            if (line == desc) {
+                print current
+                exit
+            }
+        }
+    '
+}
+
 case "$profile" in
+    home_tri)
+        principal="DP-5"
+        secondary="DP-8"
+        tertiary="HDMI-A-1"
+        ;;
     office)
         principal="DP-6"
         secondary="DP-7"
@@ -25,6 +50,17 @@ case "$profile" in
         principal="HDMI-A-1"
         secondary="eDP-1"
         ;;
+
+    office30)
+        principal="DP-7"
+        secondary="DP-9"
+        tertiary="eDP-1"
+        ;;
+    office26)
+        principal="DP-7"
+        secondary="DP-8"
+        tertiary="eDP-1"
+        ;;
     home)
         principal="DP-5"
         secondary="DP-8"
@@ -34,6 +70,10 @@ case "$profile" in
         principal="DP-11"
         secondary="DP-7"
         tertiary="eDP-1"
+        ;;
+    office6)
+        principal="DP-1"
+        secondary="eDP-1"
         ;;
     home3)
         principal="DP-6"
@@ -102,34 +142,21 @@ fi
 
 
 
-# ensure swww daemon is running
-if ! pgrep -x swww-daemon >/dev/null 2>&1; then
-    swww-daemon &disown
-    sleep 0.5
-fi
-
-# set wallpaper to all screens
-swww img ~/Pictures/wallpapers/main.png
-
-sleep 1
-
-# kill all waybar instances and start a fresh one
-killall -wq  waybar
-waybar &disown
-
-# ensure wl-clip-persist is running
-if ! pgrep -x wl-clip-persist >/dev/null 2>&1; then
-    wl-clip-persist --clipboard regular &disown
-fi
-
-# ensure polkit agent is running
-systemctl --user start hyprpolkitagent 2>/dev/null
-
+# swww-daemon, waybar, wl-clip-persist, cliphist, hypridle and hyprpolkitagent are
+# supervised by systemd (hyprland-session.target) and restart on their own, so this
+# script no longer starts them. Never call `systemctl start` on the target from here:
+# this runs inside kanshi.service, which is part of that target, and the job would
+# wait on itself. Just re-apply the wallpaper across the new monitor layout.
+for _ in $(seq 12); do
+    swww img ~/Pictures/wallpapers/main.png 2>/dev/null && break
+    sleep 0.25
+done
 
 # Reload Hyprland so it picks up the new file
 hyprctl reload
 
 sleep 2
+
 # cool notification
 notify-send -a "Monitor Profile" -i display \
   "Workspace layout applied" \

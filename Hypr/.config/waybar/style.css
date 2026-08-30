@@ -69,6 +69,30 @@ window#waybar.hidden {
   margin-right: 6px;
 }
 
+#custom-tailscale,
+#custom-openvpn {
+  border-radius: 4px;
+  margin: 6px 3px;
+  padding: 6px 12px;
+  background-color: #1e1e2e;
+}
+
+#custom-openvpn.connected {
+  color: #a6e3a1;
+}
+
+#custom-openvpn.disconnected {
+  color: #f38ba8;
+}
+
+#custom-tailscale.connected {
+  color: #a6e3a1;
+}
+
+#custom-tailscale.disconnected {
+  color: #f38ba8;
+}
+
 #custom-logo {
   padding-right: 7px;
   padding-left: 7px;

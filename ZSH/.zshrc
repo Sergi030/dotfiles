@@ -1,7 +1,14 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
- export PATH=$HOME/Programacio/edge/loadsensing-servers/utils:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/Programacio/edge/loadsensing-servers/utils:$PATH
 
+if [ -d $HOME/.config/secrets.d/ ]
+then
+  for file in $HOME/.config/secrets.d/*; do
+    [ -f "$file" ] && source "$file"
+  done
+fi
+ 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -102,3 +109,32 @@ alias podman="docker"
 alias podman-compose="docker-compose"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 export HIST_STAMPS=mm/dd/yyyy
+
+# [Home]/[End] - oh-my-zsh binds these from terminfo (\eOH / \eOF for
+# xterm-256color), but tmux always sends the vt220 form \e[1~ / \e[4~, so the
+# keys do nothing inside tmux. Bind every variant explicitly.
+for keymap in emacs viins vicmd; do
+  bindkey -M $keymap "^[[1~" beginning-of-line   # tmux, rxvt, linux console
+  bindkey -M $keymap "^[[H"  beginning-of-line   # xterm normal mode
+  bindkey -M $keymap "^[OH"  beginning-of-line   # xterm application mode
+  bindkey -M $keymap "^[[7~" beginning-of-line   # urxvt
+  bindkey -M $keymap "^[[4~" end-of-line
+  bindkey -M $keymap "^[[F"  end-of-line
+  bindkey -M $keymap "^[OF"  end-of-line
+  bindkey -M $keymap "^[[8~" end-of-line
+done
+unset keymap
+
+# Many of the GCE hosts in ~/.ssh/config ship without ncurses-term, so they have
+# no tmux-256color entry and everything curses-based breaks there. screen-256color
+# is present on any remote and describes the same key sequences tmux sends.
+ssh() {
+  if [[ $TERM == tmux* ]]; then
+    TERM=screen-256color command ssh "$@"
+  else
+    command ssh "$@"
+  fi
+}
+
+# Always colorize `ip` output, even when it is piped (-c=auto drops color there).
+alias ip='ip -c=always'

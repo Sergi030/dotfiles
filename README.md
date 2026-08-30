@@ -124,3 +124,53 @@ yay -Sy tmux
 cd ~/.dotfiles && stow TMUX && cd -
 ```
 
+
+## Hyprland
+
+1. Install Hyprland and the session programs
+
+```bash
+sudo apt install -y hyprland waybar swww wl-clipboard cliphist hypridle hyprlock kanshi dunst rofi brightnessctl
+```
+
+2. Stow Hypr
+
+`~/.config/systemd/user` must exist first, otherwise stow folds the whole
+`systemd` tree into a symlink and no other unit can ever be added to it.
+
+```bash
+mkdir -p ~/.config/systemd/user
+cd ~/.dotfiles && stow Hypr && cd -
+```
+
+3. Enable the session services
+
+The session is run by systemd, not by `exec-once`. `hyprland.conf` starts a single
+unit, `hyprland-session.target`, which pulls in `graphical-session.target`; every
+service below hangs off that and is restarted automatically if it dies. Stow only
+symlinks the unit files — enabling them is separate state, so do it once per machine:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable kanshi.service waybar.service swww.service \
+    wl-clip-persist.service cliphist-text.service cliphist-image.service \
+    hypridle.service hyprpolkitagent.service
+```
+
+Then log out and back in, or start it in place:
+
+```bash
+systemctl --user start hyprland-session.target
+```
+
+4. Checking on it
+
+```bash
+systemctl --user list-units 'kanshi*' 'waybar*' 'swww*' 'cliphist*' 'hypridle*'
+journalctl --user -u kanshi -e        # why a service died
+```
+
+To add another autostart program, write a unit with
+`PartOf=graphical-session.target` / `WantedBy=graphical-session.target` and enable
+it — do not add `exec-once` lines to `hyprland.conf`, as those are unsupervised and
+stay dead once the program crashes.

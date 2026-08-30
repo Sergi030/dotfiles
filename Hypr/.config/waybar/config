@@ -12,7 +12,8 @@
   ],
   "modules-right": [
     "tray",
-    "memory",
+    "custom/openvpn",
+    "custom/tailscale",
     "network",
     "wireplumber",
     "battery",
@@ -32,13 +33,26 @@
     "disable-scroll": false,
     "format": "{icon}"
   },
-  "memory": {
-    "interval": 5,
-    "format": "󰍛 {}%",
-    "max-length": 10
-  },
   "tray": {
     "spacing": 10
+  },
+  "custom/openvpn": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/openvpn.sh",
+    "on-click": "~/.config/waybar/scripts/openvpn.sh toggle",
+    "interval": 5,
+    "signal": 9,
+    "tooltip": true
+  },
+  "custom/tailscale": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/tailscale.sh",
+    "on-click": "~/.config/waybar/scripts/tailscale.sh toggle",
+    "interval": 5,
+    "signal": 8,
+    "tooltip": true
   },
   "clock": {
     "tooltip-format": "{calendar}",
