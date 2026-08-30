@@ -124,3 +124,89 @@ yay -Sy tmux
 cd ~/.dotfiles && stow TMUX && cd -
 ```
 
+
+## Hyprland
+
+1. Install Hyprland and the session programs
+
+```bash
+sudo apt install -y hyprland waybar swww wl-clipboard cliphist hypridle hyprlock kanshi dunst rofi brightnessctl
+```
+
+2. Stow Hypr
+
+`~/.config/systemd/user` must exist first, otherwise stow folds the whole
+`systemd` tree into a symlink and no other unit can ever be added to it.
+
+```bash
+mkdir -p ~/.config/systemd/user
+cd ~/.dotfiles && stow Hypr && cd -
+```
+
+3. Enable the session services
+
+The session is run by systemd, not by `exec-once`. `hyprland.conf` starts a single
+unit, `hyprland-session.target`, which pulls in `graphical-session.target`; every
+service below hangs off that and is restarted automatically if it dies. Stow only
+symlinks the unit files — enabling them is separate state, so do it once per machine:
+
+```bash
+systemctl --user daemon-reload
+systemctl --user enable kanshi.service waybar.service swww.service \
+    wl-clip-persist.service cliphist-text.service cliphist-image.service \
+    hypridle.service hyprpolkitagent.service
+```
+
+Then log out and back in, or start it in place:
+
+```bash
+systemctl --user start hyprland-session.target
+```
+
+4. Checking on it
+
+```bash
+systemctl --user list-units 'kanshi*' 'waybar*' 'swww*' 'cliphist*' 'hypridle*'
+journalctl --user -u kanshi -e        # why a service died
+```
+
+### Gotcha: stow folds drop-in directories, and systemd ignores them
+
+systemd does **not** follow a symlinked `foo.service.d` directory, and it fails
+*silently* — `systemctl --user show <unit> -p DropInPaths` just comes back empty
+and the packaged defaults apply. If stow folds `hypridle.service.d` into a single
+symlink, every override in it is quietly dropped.
+
+Keep the `.service.d` directories real so stow only symlinks the `.conf` files
+inside them:
+
+```bash
+mkdir -p ~/.config/systemd/user/{hypridle,waybar,hyprpolkitagent}.service.d
+cd ~/.dotfiles && stow Hypr
+systemctl --user show waybar -p DropInPaths   # must NOT be empty
+```
+
+Note that `kill -9` does not catch this: SIGKILL counts as a failure, so a unit
+left on the packaged `Restart=on-failure` still comes back and looks healthy.
+Test with `kill -TERM` (a clean exit) to tell `on-failure` and `always` apart.
+
+To add another autostart program, write a unit with
+`PartOf=graphical-session.target` / `WantedBy=graphical-session.target` and enable
+it — do not add `exec-once` lines to `hyprland.conf`, as those are unsupervised and
+stay dead once the program crashes.
+
+## VSCODE
+
+Stows `settings.json` and `keybindings.json` into `~/.config/Code/User/`.
+
+`~/.config/Code/User` must already exist as a real directory before stowing,
+otherwise stow folds it into a symlink and VS Code's entire state directory
+(`History/`, `globalStorage/`, workspace databases) ends up inside this repo.
+
+```bash
+cd ~/.dotfiles && stow VSCODE && cd -
+```
+
+`snippets/.gitignore` only exists to keep the otherwise-empty `snippets/`
+directory tracked; stow skips it, since `.gitignore` is on stow's default
+ignore list.

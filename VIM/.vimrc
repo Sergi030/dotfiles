@@ -13,6 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/deb.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
@@ -23,7 +24,9 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'ap/vim-css-color'
 Plugin 'taglist.vim'
 Plugin 'ayu-theme/ayu-vim'
-Plugin 'ludovicchabant/vim-gutentags'
+"Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'tpope/vim-fugitive'
+Plugin 'nvie/vim-flake8'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -151,5 +154,12 @@ set statusline+=%{gutentags#statusline()}
 
 let NERDTreeIgnore = ['\.pyc$', '\.o']
 
-let g:syntastic_disabled_filetypes=['h', 'cpp']
 "let g:ycm_show_diagnostics_ui = 0
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
+
+let g:flake8_show_in_file=1
+let g:flake8_show_in_gutter=1
+autocmd FileType python map <buffer> <F4> :call flake8#Flake8()<CR>

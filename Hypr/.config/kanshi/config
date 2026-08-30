@@ -1,0 +1,100 @@
+profile home_tri {
+    output "Lenovo Group Limited T24i-2L VNA73FRH" enable mode 1920x1080@60 position 1920,0 scale 1 transform 180
+    output "AOC 27G2G4 0x00017409" enable mode 1920x1080@144 position 1920,1080 scale 1
+    output "Lenovo Group Limited T24i-2L VNA73FRP" enable mode 1920x1080@60 position 3840,500 scale 1 transform 270
+    output eDP-1 disable
+
+    exec reload-hyprland
+}
+
+profile home {
+    output "AOC 27G2G4 0x00017409" enable mode 1920x1080@60 position 1920,840 scale 1
+    output "Lenovo Group Limited T24i-2L VNA73FRP" enable mode 1920x1080@60 position 3840,0 scale 1 transform 270
+    output eDP-1 disable
+    exec reload-hyprland
+}
+
+profile laptop {
+    output eDP-1 enable position 0,720 scale 1.00
+    # No `exec hyprctl reload` here: reload-hyprland ends with one itself, so
+    # this profile was reloading Hyprland twice on every switch.
+    exec reload-hyprland
+}
+
+profile office {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-6 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-7 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office2 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-5 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-6 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office3 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-5 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-7 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office30 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-7 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-9 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office26 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-7 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-8 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office4 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-6 enable mode 1920x1080@60 position 1920,1680 scale 1
+    output DP-9 enable mode 1920x1080@60 position 3840,840 scale 1 transform 270
+    exec reload-hyprland
+}
+
+profile office5 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output HDMI-A-1 enable mode 1920x1080@60 position 1920,1680 scale 1
+    exec reload-hyprland
+}
+
+profile office6 {
+    output eDP-1 enable mode 1920x1200@60 position 0,1560 scale 1
+    output DP-1 enable mode 1920x1080@60 position 1920,1680 scale 1
+    exec reload-hyprland
+}
+
+
+# --- archZeta (home desktop, Arch) ------------------------------------------
+# Renamed from `home`: WS0287 already has a profile by that name, and
+# reload-hyprland switches on the profile name, so it must be unique per layout.
+profile zeta {
+    output "AOC 27G2G4 0x00017409" {
+        enable
+        mode 1920x1080@144Hz
+        position 1920,840
+        scale 1
+        transform normal
+    }
+
+    output "Dell Inc. DELL P2417H 5N99G7CQ1D9B" {
+        enable
+        mode 1920x1080@60Hz
+        position 3840,0
+        scale 1
+        transform 270
+    }
+
+    exec $HOME/.local/bin/reload-hyprland
+}

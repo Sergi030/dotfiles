@@ -1,0 +1,22 @@
+#!/bin/bash
+
+GWID=23990
+timeout 10 ls_ssh_gw $GWID "source /etc/profile && /opt/ws/var/www/loadsensing/cgi-bin/activateLocalSsh.cgi"
+
+set -e
+cd ~/Programacio/loadsensinggw/gateway-opkg
+rm -rf production-ls/opkgCurrentFw
+git checkout production-ls/opkgCurrentFw
+./generateVersion.sh development loadsensing-gw-kona
+cp build/* production-ls/opkgCurrentFw/
+cd -
+set +e
+
+
+cd ~/Programacio/loadsensinggw/gateway-opkg/production-ls-kona
+./install.sh -b edge -c loadsensing -s 2129J0001 -D gw_23990 -r
+
+sleep 30
+
+./install.sh -b edge -c loadsensing -s 2129J0001 -D gw_23990 -fsw -fbsp -freg -fini
+cd -

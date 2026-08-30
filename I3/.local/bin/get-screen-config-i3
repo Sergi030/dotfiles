@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Get active outputs (connected and with resolution set)
+active_screens=($(xrandr --query | awk '/ connected/ && /[0-9]+x[0-9]+/ {print $1}'))
+
+# Get primary screen if any
+primary=$(xrandr --query | awk '/ connected primary/ {print $1}')
+
+if [ -z "$primary" ]; then
+    # No primary set, choose the first active screen
+    primary=${active_screens[0]}
+fi
+
+# Choose secondary: any other active screen
+secondary=""
+for screen in "${active_screens[@]}"; do
+    if [ "$screen" != "$primary" ]; then
+        secondary="$screen"
+        break
+    fi
+done
+
+# Fallback in case only one screen is active
+if [ -z "$secondary" ]; then
+    secondary="$primary"
+fi
+
+# Output i3 config variables
+echo "set \$primary_screen $primary"
+echo "set \$secondary_screen $secondary"
+

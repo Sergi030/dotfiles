@@ -1,0 +1,92 @@
+{
+    "python.defaultInterpreterPath": "/usr/bin/python",
+    "editor.fontFamily": "'Comic Code Ligatures', 'Symbols Nerd Font', monospace",
+    "editor.fontLigatures": true,
+    "workbench.colorTheme": "Dark Modern",
+    "editor.mouseWheelZoom": true,
+    "docker.extension.enableComposeLanguageServer": false,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "chat.planAgent.defaultModel": "Claude Opus 4.6 (copilot)",
+    "cSpell.userWords": [
+        "addtask",
+        "appmanager",
+        "bbfatal",
+        "busconfig",
+        "BYOK",
+        "CHKSUM",
+        "combox",
+        "DBUS",
+        "DEPLOYDIR",
+        "geomos",
+        "getgrgid",
+        "getgrnam",
+        "getpwnam",
+        "objpath",
+        "rootfs",
+        "sdbus",
+        "subgid",
+        "subgids",
+        "subuid",
+        "subuids",
+        "swuimage",
+        "swupdate",
+        "systeminfo",
+        "trium",
+        "uboot",
+        "uids",
+        "userdel",
+        "usermod",
+        "webui",
+        "wocs",
+        "worldsensing",
+        "wsos"
+    ],
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+
+    },
+    "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
+        "https://git.yoctoproject.org": {
+            "approveRequest": true,
+            "approveResponse": false
+        }
+    },
+    "claudeCode.preferredLocation": "panel",
+    "autoDocstring.docstringFormat": "google-notypes",
+    "chat.tools.compressOutput.enabled": true,
+    "inlineChat.defaultModel": "Claude Sonnet 4.6 (copilot)",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "chat.mcp.gallery.enabled": true,
+    "github.copilot.chat.agentDebugLog.fileLogging.enabled": true,
+    "editor.stickyScroll.enabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.experimental.modernUI": false,
+    "cmakeIntelliSense.cmakePath": "/usr/bin/cmake",
+    "litellm.disabledProviders": [
+        "cf-openai",
+        "cloudflare",
+        "openai",
+        "openrouter"
+    ],
+    "litellm.enableEditTools": true,
+    "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
+    "makefile.configureOnOpen": true,
+    "git.blame.editorDecoration.enabled": true,
+    "git.blame.statusBarItem.enabled": false,
+    "git.blame.editorDecoration.template": "${authorName}, ${authorDateAgo} • ${subject}",
+    "workbench.colorCustomizations": {
+        "git.blame.editorDecorationForeground": "#6a737d"
+    },
+    "scm.diffDecorations": "all",              // gutter + overview ruler + minimap
+    "scm.diffDecorationsGutterVisibility": "always",  // or "hover"
+    "scm.diffDecorationsGutterWidth": 3,
+    "scm.diffDecorationsIgnoreTrimWhitespace": "inherit",
+    "chat.agent.sandbox.enabled": "off"
+}

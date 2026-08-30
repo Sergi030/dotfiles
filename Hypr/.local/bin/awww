@@ -1,0 +1,8 @@
+#!/bin/sh
+# Arch ships the `awww` fork; Debian/Ubuntu ship upstream `swww`. The Hyprland
+# config calls `awww` on every machine, and this forwards to whichever is present.
+# Guard on swww first so this shim is a no-op wherever the real awww is installed.
+if command -v swww >/dev/null 2>&1; then
+    exec swww "$@"
+fi
+exec /usr/bin/awww "$@"

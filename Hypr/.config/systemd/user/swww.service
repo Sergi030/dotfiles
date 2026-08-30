@@ -1,0 +1,18 @@
+[Unit]
+Description=swww daemon (Wayland wallpaper)
+Documentation=https://github.com/LGFae/swww
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/awww-daemon
+# Wait for the daemon's socket, then apply the wallpaper.
+ExecStartPost=/bin/sh -c 'for i in $(seq 20); do %h/.local/bin/awww query >/dev/null 2>&1 && break; sleep 0.25; done; %h/.local/bin/awww img %h/Pictures/wallpapers/main.png'
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target

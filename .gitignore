@@ -3,5 +3,12 @@ VIM/.vim/backup
 VIM/.vim/swap
 *~
 VIM/.vim/backup/.vimrc~
-I3/.bin/__pycache__/
+# Was I3/.bin/__pycache__/, but commit 8171914 moved bin -> .local/bin and the
+# rule stopped matching, so a .pyc got committed. Match them anywhere instead.
+**/__pycache__/
 **/zcompdump*
+
+# Generated, machine-specific: workspaces.conf by reload-hyprland,
+# monitors.conf by nwg-displays ("Do not edit manually").
+Hypr/.config/hypr/workspaces.conf
+Hypr/.config/hypr/monitors.conf
