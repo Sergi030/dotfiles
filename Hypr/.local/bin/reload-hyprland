@@ -32,8 +32,8 @@ case "$profile" in
         ;;
 esac
 
-principal="$(get_monitor_name_by_desc "$principal_desc")"
-secondary="$(get_monitor_name_by_desc "$secondary_desc")"
+principal="$(get_monitor_name_by_desc "$principal")"
+secondary="$(get_monitor_name_by_desc "$secondary")"
 echo "principal=$principal"
 echo "secondary=$secondary"
 

@@ -5,3 +5,4 @@ VIM/.vim/swap
 VIM/.vim/backup/.vimrc~
 I3/.bin/__pycache__/
 **/zcompdump*
+Hypr/.config/hypr/workspaces.conf
