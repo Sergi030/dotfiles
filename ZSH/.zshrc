@@ -136,5 +136,17 @@ ssh() {
   fi
 }
 
-# Always colorize `ip` output, even when it is piped (-c=auto drops color there).
-alias ip='ip -c=always'
+# Colorize `ip` output at the terminal; auto strips color when piped or captured.
+alias ip='ip -c=auto'
+
+# Hyprland exports its instance signature into the systemd user environment, not
+# into login shells, so hyprctl in any shell Hyprland did not spawn fails with
+# "HYPRLAND_INSTANCE_SIGNATURE not set!" and tells you to pass --instance.
+if [[ -z $HYPRLAND_INSTANCE_SIGNATURE && -d ${XDG_RUNTIME_DIR:-/run/user/$UID}/hypr ]]; then
+  _hypr_sig=$(systemctl --user show-environment 2>/dev/null | sed -n 's/^HYPRLAND_INSTANCE_SIGNATURE=//p')
+  # If systemd does not have it either, fall back to the newest live socket dir.
+  [[ -z $_hypr_sig ]] && _hypr_sig=$(ls -t ${XDG_RUNTIME_DIR:-/run/user/$UID}/hypr 2>/dev/null | head -1)
+  [[ -n $_hypr_sig ]] && export HYPRLAND_INSTANCE_SIGNATURE=$_hypr_sig
+  [[ -z $WAYLAND_DISPLAY ]] && export WAYLAND_DISPLAY=$(systemctl --user show-environment 2>/dev/null | sed -n 's/^WAYLAND_DISPLAY=//p')
+  unset _hypr_sig
+fi
