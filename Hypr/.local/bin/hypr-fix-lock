@@ -1,0 +1,49 @@
+#!/bin/bash
+# Recover a Hyprland session whose lock client died.
+#
+# If hyprlock is killed while it holds the ext_session_lock, Hyprland keeps the
+# session locked on purpose but has no client left to draw it: the screen stays
+# dark and input goes nowhere. Hyprland refuses to let a new client adopt the
+# orphaned lock unless misc:allow_session_lock_restore is on, so turn that on and
+# start a fresh hyprlock to take the lock over.
+#
+# The flag is applied with `hyprctl keyword`, i.e. runtime-only: it is dropped on
+# the next config reload and is deliberately NOT written into hyprland.conf,
+# because letting a new client adopt an existing lock weakens the lock screen.
+
+instance="${HYPR_INSTANCE:-0}"
+
+hc() {
+    if [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
+        hyprctl "$@"
+    else
+        # Shells Hyprland did not spawn carry no signature; address it by index.
+        hyprctl --instance "$instance" "$@"
+    fi
+}
+
+if ! pgrep -x Hyprland >/dev/null; then
+    echo "hypr-fix-lock: Hyprland is not running." >&2
+    exit 1
+fi
+
+# A dead lock client can also leave the seat off this session's VT. That looks
+# identical from the outside (dark screen) but needs loginctl, not hyprctl.
+if [[ -n "${XDG_SESSION_ID:-}" ]]; then
+    if [[ "$(loginctl show-session "$XDG_SESSION_ID" -p Active --value 2>/dev/null)" == "no" ]]; then
+        echo "hypr-fix-lock: session $XDG_SESSION_ID is inactive, reactivating its VT first."
+        loginctl activate "$XDG_SESSION_ID"
+        sleep 1
+    fi
+fi
+
+if pgrep -x hyprlock >/dev/null && [[ "${1:-}" != "--force" ]]; then
+    echo "hypr-fix-lock: hyprlock is already running (pid $(pgrep -x hyprlock | tr '\n' ' '))."
+    echo "hypr-fix-lock: unlock it as usual, or re-run with --force to start another."
+    exit 0
+fi
+
+hc keyword misc:allow_session_lock_restore 1 || exit 1
+hc dispatch exec hyprlock || exit 1
+
+echo "hypr-fix-lock: lock restore enabled and hyprlock relaunched - unlock it as usual."
