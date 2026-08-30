@@ -16,7 +16,8 @@ profile home {
 
 profile laptop {
     output eDP-1 enable position 0,720 scale 1.00
-    exec hyprctl reload
+    # No `exec hyprctl reload` here: reload-hyprland ends with one itself, so
+    # this profile was reloading Hyprland twice on every switch.
     exec reload-hyprland
 }
 

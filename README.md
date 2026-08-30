@@ -194,3 +194,19 @@ To add another autostart program, write a unit with
 `PartOf=graphical-session.target` / `WantedBy=graphical-session.target` and enable
 it — do not add `exec-once` lines to `hyprland.conf`, as those are unsupervised and
 stay dead once the program crashes.
+
+## VSCODE
+
+Stows `settings.json` and `keybindings.json` into `~/.config/Code/User/`.
+
+`~/.config/Code/User` must already exist as a real directory before stowing,
+otherwise stow folds it into a symlink and VS Code's entire state directory
+(`History/`, `globalStorage/`, workspace databases) ends up inside this repo.
+
+```bash
+cd ~/.dotfiles && stow VSCODE && cd -
+```
+
+`snippets/.gitignore` only exists to keep the otherwise-empty `snippets/`
+directory tracked; stow skips it, since `.gitignore` is on stow's default
+ignore list.

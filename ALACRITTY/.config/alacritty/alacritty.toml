@@ -50,3 +50,11 @@ white   = "#fdf6e3"
 key = "Return"
 mods = "Shift"
 chars = "\u001B\r"
+
+# Ctrl+Backspace -> ^W (delete previous word). Terminals send DEL for plain
+# Backspace and give Ctrl no distinct encoding, so without this the shell sees
+# an ordinary Backspace and deletes a single character.
+[[keyboard.bindings]]
+key = "Back"
+mods = "Control"
+chars = "\u0017"
